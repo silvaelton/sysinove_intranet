@@ -2,6 +2,7 @@ Internal::Engine.routes.draw do
 
   resources :tasks, path: 'tarefas'
   resources :staffs
+  resources :contacts
   resources :sectors
   resources :patrimonies
   resources :informations

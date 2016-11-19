@@ -1,28 +1,28 @@
-%nav.navbar.navbar-default
+%nav.navbar.navbar-default.dark
   .container
     %ul.nav.navbar-nav
       %li.dropdown
         %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          Interno
+          Gestão interna
           %span.caret
         %ul.dropdown-menu
           %li
-            %a{:href => "#"} Funcionários
+            %a{:href => "#{internal.staffs_path}"} Funcionários
           %li
-            %a{:href => "#"} Setores
+            %a{:href => "#{internal.sectors_path}"} Setores
           %li
-            %a{:href => "#"} Anotações
+            %a{:href => "#{internal.staffs_path}"} Anotações
           %li
-            %a{:href => "#"} Contatos
+            %a{:href => "#{internal.contacts_path}"} Contatos
           
           %li.divider{:role => "separator"}
           %li
-            %a{:href => "#"} Chat geral
+            %a{:href => "#{internal.staffs_path}"} Chat geral
           %li.divider{:role => "separator"}
           %li
-            %a{:href => "#"} Tarefas
-            %a{:href => "#"} Eventos
-            %a{:href => "#"} Agenda
+            %a{:href => "#{internal.tasks_path}"} Tarefas
+            %a{:href => "#{internal.events_path}"} Eventos
+            %a{:href => "#{internal.staffs_path}"} Agenda
 
     / /.navbar-collapse
   / /.container-fluid

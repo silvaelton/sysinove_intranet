@@ -1,1 +1,56 @@
-= current_scope
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de tarefas
+      %small
+        %p listagem de tarefas internas
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        = simple_form_for url_for, method: :get do |f|
+          .row
+            .col-md-2
+              = f.input :start
+            .col-md-2
+              = f.input :end
+          .row
+            .col-md-4
+              = f.input :by_name
+            .col-md-2
+              = f.input :by_responsible, as: :select, include_blank: "Todos"
+            .col-md-2
+              = f.input :by_prority, as: :select, include_blank: "Todas"
+            .col-md-2
+              = f.input :by_situation, as: :select, include_blank: "Todas"
+            .col-md-2
+              = f.submit "Filtrar", class: 'btn btn-info filter'
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        = link_to "+ Adicionar tarefa", new_task_path, class: 'btn btn-success btn-sm'
+        = link_to "Exportar", new_task_path, class: 'btn btn-info btn-sm'
+        .divider
+        %table.table.table-striped.table-bordered
+          %thead
+            %tr 
+              %th Cod.
+              %th Título
+              %th Descrição
+              %th Prazo
+              %th Progresso
+              %th Responsável
+              %th 
+          %tbody
+            - 10.times do
+              %tr 
+                %td
+                %td
+                %td
+                %td
+                %td
+                %td
+                %td
