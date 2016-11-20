@@ -1,0 +1,17 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de funcionários
+      %small
+        %p Detalhamento de funcionário
+      = link_to "Voltar para listagem", staffs_path, class: 'btn btn-primary'
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Nº
+        #{@staff.id}
+      .panel-body
+        %h2
+          %b= @staff.name

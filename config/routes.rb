@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope ':scope_id' do 
+  scope ':account_id' do 
     mount Internal::Engine => '/interno'
   end
 end

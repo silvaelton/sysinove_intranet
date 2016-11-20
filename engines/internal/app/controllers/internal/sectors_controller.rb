@@ -1,21 +1,21 @@
 require_dependency 'internal/application_controller'
 
 module Internal
-  class StaffsController < ApplicationController
-    before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  class SectorsController < ApplicationController 
+    before_action :set_sector, only: [:show, :edit, :update, :destroy]
     
     def index
-      @staffs = current_account.staffs.order(:name)
+      @sectors = current_account.sectors.order(:name)
     end
 
     def new
-      @staff = current_account.staffs.new
+      @sector = current_account.sectors.new
     end
 
     def create
-      @staff = current_account.staffs.new(set_params)
+      @sector = current_account.sectors.new(set_params)
 
-      if @staff.save
+      if @sector.save
         flash[:success] = t :success
         redirect_to action: :index
       else
@@ -32,7 +32,7 @@ module Internal
 
     def update
 
-      if @staff.update(set_params)
+      if @sector.update(set_params)
         flash[:success] = t :success
         redirect_to action: :index
       else
@@ -42,7 +42,7 @@ module Internal
     end
 
     def destroy
-      @staff.destroy
+      @sector.destroy
       flash[:success] = t :success 
       redirect_to action: :index
     end
@@ -50,15 +50,15 @@ module Internal
     private
 
     def set_params
-      params.require(:staff).permit(:name, :address, :cpf, :rg, :rg_org, :telephone, 
+      params.require(:sector).permit(:name, :address, :cpf, :rg, :rg_org, :telephone, 
                                     :telephone_optional, :celphone, :email, :cep, 
                                     :state_id, :city, :complement, :user_active, :username, 
                                     :password, :sector_id, :job, :code, :situation)
 
     end
 
-    def set_staff
-      @staff = current_account.staffs.find(params[:id])
+    def set_sector
+      @sector = current_account.sectors.find(params[:id])
     end
 
   end

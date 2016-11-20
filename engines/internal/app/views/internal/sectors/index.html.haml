@@ -1,9 +1,9 @@
 .row
   .col-md-12
     %h1.title 
-      Gestão de funcionários
+      Gestão de setores
       %small
-        %p listagem de funcionários
+        %p listagem de setores
 .divider
 .row
   .col-md-12
@@ -13,8 +13,6 @@
           .row
             .col-md-4
               = f.input :by_name, label: "Por nome", input_html: {placeholder: "Digite o nome", name: :by_name}
-            .col-md-2
-              = f.input :by_sector, label: "Por setor", as: :select, include_blank: "Todos", input_html: { name: :by_sector}
             .col-md-2
               = f.input :by_situation, label: "Por situação", as: :select, include_blank: "Todas", input_html: { name: :by_situation}
             .col-md-2
@@ -26,9 +24,9 @@
       .panel-heading
         %h5
           %b Listado:
-          = @staffs.count
+          = @sectors.count
       .panel-body
-        = link_to "+ Adicionar funcionário", new_staff_path, class: 'btn btn-success btn-sm'
+        = link_to "+ Adicionar setor", new_sector_path, class: 'btn btn-success btn-sm'
         .divider
         %table.table.table-striped.table-bordered
           %thead
@@ -42,7 +40,7 @@
               %th Possui acesso?
               %th 
           %tbody
-            - @staffs.each do |staff|
+            - @sectors.each do |staff|
               %tr 
                 %td= staff.id ||= I18n.t(:no_information)
                 %td= staff.code ||= I18n.t(:no_information)

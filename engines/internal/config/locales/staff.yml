@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      'internal/staff': "Funcionário"
+    attributes:
+      'internal/staff':
+        name: "Nome completo"
+        cpf: "CPF"
+        rg: "RG"
+        rg_org: "RG ORG"
+        telephone: "Telefone"
+        telephone_optional: "Telefone secundário"
+        celphone: "Celular"
+        email: "E-mail"
+        cep: "CEP"
+        state: "Estado"
+        city: "Cidade"
+        address: "Endereço/Logradouro"
+        complement: "Complemento"
+        user_active: "Usuário ativo?"
+        job: "Cargo"
+        code: "Matrícula"
+        situation: "Ativo?"
+        username: "Usuário"
+        password: "Senha de acesso"

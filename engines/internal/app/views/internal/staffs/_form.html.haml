@@ -2,23 +2,21 @@
   .row
     .col-md-12
       .separator 
-        %label
-          %b Informaçoes pessoais
+        %label Informaçoes pessoais
   .row
     .col-md-6
-      = f.input :name
+      = f.input :name, placeholder: "Informe o nome completo"
     .col-md-2
-      = f.input :cpf
+      = f.input :cpf, input_html: { class: 'cpf' }
     .col-md-2
-      = f.input :rg
+      = f.input :rg, placeholder: "Informe o RG"
     .col-md-2
-      = f.input :rg_org
+      = f.input :rg_org, placeholder: "SSP UF"
   
   .row
     .col-md-12
       .separator 
-        %label
-          %b Informações de contato
+        %label Informações de contato
   .row
     .col-md-3
       = f.input :telephone
@@ -27,48 +25,45 @@
     .col-md-3
       = f.input :celphone
     .col-md-3
-      = f.input :email
+      = f.input :email, placeholder: "email@exemplo.com"
   .row
     .col-md-12
       .separator 
-        %label
-          %b Informações de localização / moradia
+        %label Informações de localização / moradia
   .row
     .col-md-2
-      = f.input :cep
+      = f.input :cep, input_html: { class: 'cep'}
     .col-md-1
       = f.input :state_id
     .col-md-3
-      = f.input :city
+      = f.input :city, placeholder: "Informe a cidade "
     .col-md-6
-      = f.input :address
+      = f.input :address, placeholder: "Informe o logradouro completo"
   .row
     .col-md-6
-      = f.input :complement
+      = f.input :complement, placeholder: "Informe se houver algum complemento"
   .row
     .col-md-12
       .separator 
-        %label
-          %b Informações de acesso
+        %label Informações de acesso
   .row
     .col-md-2
       = f.input :user_active, as: :select, include_blank: false
     .col-md-3
-      = f.input :username
+      = f.input :username, placeholder: "Informe um usuário para acesso"
     .col-md-3
-      = f.input :password
+      = f.input :password, placeholder: "Informe a senha"
   .row
     .col-md-12
       .separator 
-        %label
-          %b Informações de internas
+        %label Informações de internas
   .row
     .col-md-2
       = f.input :sector_id, as: :select, include_blank: "selecione..."
     .col-md-2
-      = f.input :job
+      = f.input :job, placeholder: "Informe o cargo"
     .col-md-2
-      = f.input :code
+      = f.input :code, placeholder: "Informe a matrícula"
     .col-md-2
       = f.input :situation, as: :select, include_blank: false
   .separator

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120091245) do
+ActiveRecord::Schema.define(version: 20161120194633) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_accounts_on_code", unique: true
+  end
 
   create_table "internal_contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,8 +35,13 @@ ActiveRecord::Schema.define(version: 20161120091245) do
   end
 
   create_table "internal_sectors", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "account_id"
+    t.string   "name"
+    t.text     "observation"
+    t.boolean  "publish",     default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_internal_sectors_on_account_id"
   end
 
   create_table "internal_staff_messages", force: :cascade do |t|

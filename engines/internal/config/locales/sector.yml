@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      'internal/sector': "Setor"
+    attributes:
+      'internal/sector':
+        name: "Nome"
+        publish: "Ativo?"
+        observation: "Observação"

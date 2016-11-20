@@ -1,0 +1,6 @@
+pt-BR:
+  no_information: "Sem informação"
+  disable_with: "Carregando aguarde..."
+  cancel: "Cancelar"
+  success: "Operação realizada com sucesso!"
+  danger: "Não foi possível realizar esta operação"
