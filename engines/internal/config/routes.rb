@@ -1,7 +1,7 @@
 Internal::Engine.routes.draw do
 
-  resources :tasks, path: 'tarefas'
-  resources :staffs
+  resources :tasks,   path: 'tarefas'
+  resources :staffs,  path: 'funcionarios'
   resources :contacts
   resources :sectors
   resources :patrimonies

@@ -3,14 +3,20 @@ body {
   background-color: #fbfbfb !important;
 }
 
+.separator  {
+  border-bottom: 1px solid #e6e5e5 !important;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .breadcrumb {
   background-color: white !important;
 }
 
 .dark {
-	margin-bottom: 0px !important;
-	background-color: #3c3c3c !important;
-	border-bottom: none !important;'
+  margin-bottom: 0px !important;
+  background-color: #3c3c3c !important;
+  border-bottom: none !important;'
 }
 
 .white {
