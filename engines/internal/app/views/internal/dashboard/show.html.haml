@@ -1,0 +1,72 @@
+.row
+  .col-md-12
+    %h1.title 
+      Visão Geral
+      %small
+        %p Visão geral do módulo de interno
+.divider
+.row
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b Tarefas para este mês
+      .panel-body
+        %h1.super 10
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b  Eventos para este mês
+      .panel-body
+        %h1.super 10
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b  Contatos cadastrados
+      .panel-body
+        %h1.super 10
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b  Total de funcionários
+      .panel-body
+        %h1.super= current_account.staffs.count
+.row
+  .col-md-6
+    .panel.panel-success
+      .panel-heading
+        %b Tarefas à vencer
+      .panel-body
+        %table.table.table-striped.table-bordered
+          %thead 
+            %tr 
+              %th Data/Hora
+              %th.col-md-5 Usuário
+          %tbody
+  .col-md-6
+    .panel.panel-warning
+      .panel-heading
+        %b Próximos eventos
+      .panel-body
+        %table.table.table-striped.table-bordered
+          %thead 
+            %tr 
+              %th Data/Hora
+              %th.col-md-5 Usuário
+          %tbody
+
+.row
+  .col-md-12
+    .panel.panel-primary
+      .panel-heading
+        %b Últimas mensagens no chat
+      .panel-body
+        %table.table.table-striped.table-bordered
+          %thead 
+            %tr 
+              %th Data/Hora
+              %th.col-md-5 Usuário
+          %tbody

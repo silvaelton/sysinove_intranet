@@ -7,11 +7,13 @@
 .divider
 .row
   .col-md-12
-    #overflow{style: 'overflow: auto; height: 700px;'}
-      .panel.panel-default
-        .panel-body.index-chat
+    .panel.panel-default
+      .panel-heading
+        Mensagens
+      .panel-body.index-chat
+        #overflow.col-md-12{style: 'overflow: auto; height: 500px;'}
           = render 'index'
-        %br/
+      %br/
       
 .divider
 .row
