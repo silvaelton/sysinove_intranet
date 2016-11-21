@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      'internal/task': "Tarefa"
+    attributes:
+      'internal/task':
+        title: "Título"
+        situation: "Situação"
+        description: "Descrição"
+        responsible: "Responsável"
+        priority: "Prioridade"
+        due: "Prazo"
+        

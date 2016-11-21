@@ -1,0 +1,21 @@
+= simple_form_for @task do |f|
+  .row
+    .col-md-6
+      = f.input :title, placeholder: "Informe o título"
+    .col-md-2
+      = f.input :situation,as: :select, collection: ::Internal::Task.situations.map { |k,v| [k.humanize, k]}, include_blank: false
+  .row
+    .col-md-12
+      = f.input :description
+  .row
+    .col-md-4
+      = f.association :responsible, include_blank: 'Nenhum selecionado...' 
+    .col-md-4
+      = f.input :priority, as: :select, collection: ::Internal::Task.priorities.map { |k,v| [k.humanize, k]}, include_blank: false
+    .col-md-2
+      = f.input :due, as: :string, input_html: { class: 'date', value: f.object.due.present? ? localize(f.object.due) : nil, placeholder: 'dd/mm/ano'}
+  .separator
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), sectors_path, data: { disable_with: t(:disable_with)}, class: 'btn btn-default'

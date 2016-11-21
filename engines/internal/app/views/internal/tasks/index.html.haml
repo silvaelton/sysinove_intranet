@@ -12,20 +12,20 @@
         = simple_form_for url_for, method: :get do |f|
           .row
             .col-md-2
-              = f.input :start
+              = f.input :by_start, label: "Período(início)", input_html: { class: 'date', value: params[:by_start], placeholder: 'dd/mm/ano'}
             .col-md-2
-              = f.input :end
+              = f.input :by_end, label: "Período(fim)", input_html: { class: 'date', value: params[:by_end], placeholder: 'dd/mm/ano'}
           .row
             .col-md-4
-              = f.input :by_name
+              = f.input :by_name, label: "Por título", input_html: { value: params[:by_name]}
             .col-md-2
-              = f.input :by_responsible, as: :select, include_blank: "Todos"
+              = f.input :by_responsible, as: :select, collection: current_account.staffs, include_blank: "Todos", label: "Por responsável"
             .col-md-2
-              = f.input :by_prority, as: :select, include_blank: "Todas"
+              = f.input :by_prority, as: :select, collection: ::Internal::Task.priorities.map { |k,v| [k.humanize, k]}, include_blank: "Todas", label: "Por prioridade", selected: params[:by_prority], input_html: { name: :by_prority}
             .col-md-2
-              = f.input :by_situation, as: :select, include_blank: "Todas"
+              = f.input :by_situation, as: :select, collection: ::Internal::Task.priorities.map { |k,v| [k.humanize, k]}, include_blank: "Todas", label: "Por situação", selected: params[:by_situation], input_html: { name: :by_situation}
             .col-md-2
-              = f.submit "Filtrar", class: 'btn btn-info filter'
+              = f.submit "Filtrar", class: 'btn btn-info filter', data: { disable_with: t(:disable_with)}
 .divider
 .row
   .col-md-12
@@ -41,16 +41,28 @@
               %th Título
               %th Descrição
               %th Prazo
-              %th Progresso
               %th Responsável
               %th 
           %tbody
-            - 10.times do
-              %tr 
-                %td
-                %td
-                %td
-                %td
-                %td
-                %td
-                %td
+            - if @tasks.present?
+              - @tasks.each do |task|
+                %tr
+                  %td.col-md-1= task.id
+                  %td= task.title
+                  %td= task.description
+                  %td= task.due.strftime("%d/%m/%Y")
+                  %td= task.responsible.name rescue I18n.t(:no_information)
+                  %td.col-md-1
+                    .btn-group
+                      %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                        Ações
+                        %span.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "#{edit_task_path(task)}"} Editar
+                        %li
+                          %a{:href => "#{task_path(task)}", :data => { method: :delete, confirm: t(:confirm) }} Remover
+
+            - else
+              %tr
+                %td{colspan: 1}

@@ -86,8 +86,17 @@ ActiveRecord::Schema.define(version: 20161120194633) do
   end
 
   create_table "internal_tasks", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "account_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "priority"
+    t.integer  "situation"
+    t.integer  "responsible_id"
+    t.date     "due"
+    t.integer  "progress"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["account_id"], name: "index_internal_tasks_on_account_id"
   end
 
 end

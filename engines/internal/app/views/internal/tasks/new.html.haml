@@ -1,0 +1,15 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de tarefas
+      %small
+        %p Criação de tarefa
+      = link_to "Retornar para listagem", tasks_path, class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Nova tarefa
+      .panel-body
+        = render 'form'

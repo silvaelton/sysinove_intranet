@@ -9,8 +9,7 @@ Internal::Engine.routes.draw do
   resources :contacts
   resources :sectors
   resources :patrimonies
-  resources :informations
-  resources :schedules
+  resources :notes
   resources :events
   resources :agendas
 
