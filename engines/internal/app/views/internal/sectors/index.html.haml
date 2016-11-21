@@ -32,33 +32,23 @@
           %thead
             %tr 
               %th Nº
-              %th Matrícula
               %th Nome
-              %th Setor
-              %th Cargo
               %th Ativo?
-              %th Possui acesso?
               %th 
           %tbody
-            - @sectors.each do |staff|
+            - @sectors.each do |sector|
               %tr 
-                %td= staff.id ||= I18n.t(:no_information)
-                %td= staff.code ||= I18n.t(:no_information)
-                %td= staff.name ||= I18n.t(:no_information)
-                %td= staff.sector_id ||= I18n.t(:no_information)
-                %td= staff.job       ||= I18n.t(:no_information)
-                %td= staff.situation ? "Sim" : "Não"
-                %td= staff.user_active ? "Sim" : "Não"
-                %td
+                %td.col-md-1= sector.id ||= I18n.t(:no_information)
+                %td= sector.name ||= I18n.t(:no_information)
+                %td.col-md-1= sector.publish ? "Sim" : 'Não'
+                %td.col-md-1
                   .btn-group
                     %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
                       Ações
                       %span.caret
                     %ul.dropdown-menu
                       %li
-                        %a{:href => "#{staff_path(staff)}"} Visualizar
+                        %a{:href => "#{edit_sector_path(sector)}"} Editar
                       %li
-                        %a{:href => "#{edit_staff_path(staff)}"} Editar
-                      %li
-                        %a{:href => "#{staff_path(staff)}", :data => { method: :delete }} Remover
+                        %a{:href => "#{sector_path(sector)}", :data => { method: :delete }} Remover
                       

@@ -12,6 +12,7 @@ Internal::Engine.routes.draw do
   resources :informations
   resources :schedules
   resources :events
+  resources :agendas
 
   resources :general_messages, path: 'chat', only: [:new, :create]
   resources :staff_messages

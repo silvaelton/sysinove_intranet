@@ -59,7 +59,7 @@
         %label Informações de internas
   .row
     .col-md-2
-      = f.input :sector_id, as: :select, include_blank: "selecione..."
+      = f.association :sector, as: :select, include_blank: "selecione..."
     .col-md-2
       = f.input :job, placeholder: "Informe o cargo"
     .col-md-2

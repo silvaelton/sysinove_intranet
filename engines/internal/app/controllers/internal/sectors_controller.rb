@@ -50,10 +50,7 @@ module Internal
     private
 
     def set_params
-      params.require(:sector).permit(:name, :address, :cpf, :rg, :rg_org, :telephone, 
-                                    :telephone_optional, :celphone, :email, :cep, 
-                                    :state_id, :city, :complement, :user_active, :username, 
-                                    :password, :sector_id, :job, :code, :situation)
+      params.require(:sector).permit(:name, :observation, :publish)
 
     end
 

@@ -3,11 +3,26 @@
 }
 
 body {
-  background-color: #fbfbfb !important;
+  background-color: #fdfff8  !important;
 }
 
 label {
   font-weight: bold !important;
+}
+
+#calendar table:not(.table-bordered)>thead>tr>th, 
+.table:not(.table-bordered)>thead>tr>th, 
+table:not(.table-bordered)>tbody>tr>th, 
+.table:not(.table-bordered)>tbody>tr>th, 
+table:not(.table-bordered)>tfoot>tr>th, 
+.table:not(.table-bordered)>tfoot>tr>th, 
+table:not(.table-bordered)>thead>tr>td, 
+.table:not(.table-bordered)>thead>tr>td, 
+table:not(.table-bordered)>tbody>tr>td, 
+.table:not(.table-bordered)>tbody>tr>td, 
+table:not(.table-bordered)>tfoot>tr>td, 
+.table:not(.table-bordered)>tfoot>tr>td{
+  border: 1px solid #c7c7c7 !important;
 }
 
 .separator  {

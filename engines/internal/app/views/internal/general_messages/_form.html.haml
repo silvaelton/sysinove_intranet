@@ -1,0 +1,4 @@
+= simple_form_for @chat, remote: true do |f|
+  = f.input :content, label: "Mensagem"
+  = f.submit "Enviar mensagem", class: 'btn btn-success'
+    

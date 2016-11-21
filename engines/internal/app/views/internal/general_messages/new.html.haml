@@ -7,10 +7,16 @@
 .divider
 .row
   .col-md-12
-    #overflow{style: 'overflow: auto; height: 400px;'}
+    #overflow{style: 'overflow: auto; height: 700px;'}
       .panel.panel-default
-        .panel-body
-          - 60.times do |chat|
-            .row
-              ok
+        .panel-body.index-chat
+          = render 'index'
+        %br/
+      
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-body.index-form
+        = render 'form'
             

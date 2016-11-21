@@ -13,6 +13,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'simple_form'
 
+gem 'validates_cpf_cnpj'
+gem 'validates_timeliness'
+gem 'email_validator'
+gem 'file_validators'
+
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri

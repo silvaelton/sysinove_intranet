@@ -30,8 +30,13 @@ ActiveRecord::Schema.define(version: 20161120194633) do
   end
 
   create_table "internal_general_messages", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "staff_id"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_internal_general_messages_on_account_id"
+    t.index ["staff_id"], name: "index_internal_general_messages_on_staff_id"
   end
 
   create_table "internal_sectors", force: :cascade do |t|
@@ -71,6 +76,9 @@ ActiveRecord::Schema.define(version: 20161120194633) do
     t.boolean  "user_active",        default: false
     t.boolean  "situation",          default: true
     t.string   "job"
+    t.decimal  "salary"
+    t.decimal  "transport_value"
+    t.decimal  "food_value"
     t.integer  "sector_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false

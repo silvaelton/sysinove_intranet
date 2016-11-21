@@ -1,0 +1,12 @@
+- @messages.each do |chat|
+  .row
+    .col-md-12
+      %h5
+        %b @nome_do_usuario - 
+        %i= chat.created_at.strftime("%d/%m/%Y às %H:%M")
+      %h6
+        %p= chat.content
+  %hr/
+
+:javascript
+  $("#overflow").scrollTop($("#overflow")[0].scrollHeight);

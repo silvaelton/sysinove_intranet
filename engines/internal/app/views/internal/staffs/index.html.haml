@@ -12,11 +12,11 @@
         = simple_form_for url_for, method: :get do |f|
           .row
             .col-md-4
-              = f.input :by_name, label: "Por nome", input_html: {placeholder: "Digite o nome", name: :by_name}
+              = f.input :by_name, label: "Por nome", input_html: {placeholder: "Digite o nome", name: :by_name, value: params[:by_name]}
             .col-md-2
-              = f.input :by_sector, label: "Por setor", as: :select, include_blank: "Todos", input_html: { name: :by_sector}
+              = f.input :by_sector, label: "Por setor", as: :select, collection: current_account.sectors, include_blank: "Todos", input_html: { name: :by_sector}, selected: params[:by_sector]
             .col-md-2
-              = f.input :by_situation, label: "Por situação", as: :select, include_blank: "Todas", input_html: { name: :by_situation}
+              = f.input :by_situation, label: "Ativo?", as: :select, include_blank: "Todas", input_html: { name: :by_situation}
             .col-md-2
               = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter', data: { disable_with: t(:disable_with)}
 .divider

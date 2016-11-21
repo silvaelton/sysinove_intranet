@@ -1,0 +1,5 @@
+- if @chat.errors.any?
+  $('.index-form').html("#{escape_javascript(render 'form')}")
+- else
+  $('.index-chat').html("#{escape_javascript(render 'index')}")
+  $("#general_message_content").val('')

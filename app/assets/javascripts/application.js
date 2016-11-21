@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require jquery.mask.min
+//= require moment 
+//= require fullcalendar
+//= require calendar.locale.min
 //= require custom-application
