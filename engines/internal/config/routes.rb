@@ -1,5 +1,5 @@
 Internal::Engine.routes.draw do
-
+  
   root 'dashboard#show'
   
   get 'dashboard', path: 'visao-geral', to: 'dashboard#show'

@@ -43,4 +43,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 path 'engines' do 
   gem 'internal'
+  gem 'customer'
 end

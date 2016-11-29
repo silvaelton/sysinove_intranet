@@ -29,6 +29,21 @@
             %a{:href => "#{internal.agendas_path}"} Agenda
       %li.dropdown
         %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          Gestão de clientes (em montagem)
-    / /.navbar-collapse
-  / /.container-fluid
+          Gestão de clientes
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#{customer.root_path}"} Visão geral
+          %li
+            %a{:href => "#{customer.clients_path}"} Gestão de clientes
+          %li
+            %a{:href => "#{customer.client_categories_path}"} Categorias
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.messages_path}"} Mensagens
+          %li
+            %a{:href => "#{customer.requests_path}"} Solicitações
+          %li
+            %a{:href => "#{customer.documents_path}"} Documentos
+          %li
+            %a{:href => "#{customer.archives_path}"} Arquivos

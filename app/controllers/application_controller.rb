@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_account
 
   def current_account
-    ::Account.find_by(code: params[:account_id].to_i) rescue nil
+    ::Account.find_by(code: 254789) rescue nil
   end
+
+
+
 end
