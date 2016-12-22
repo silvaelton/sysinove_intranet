@@ -1,7 +1,11 @@
 PATH
   remote: engines
   specs:
+    commercial (0.1.0)
+      rails (~> 5.0.0, >= 5.0.0.1)
     customer (0.1.0)
+      rails (~> 5.0.0, >= 5.0.0.1)
+    finance (0.1.0)
       rails (~> 5.0.0, >= 5.0.0.1)
     internal (0.1.0)
       rails (~> 5.0.0, >= 5.0.0.1)
@@ -198,9 +202,11 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  commercial!
   customer!
   email_validator
   file_validators
+  finance!
   fullcalendar-rails
   haml-rails
   internal!
