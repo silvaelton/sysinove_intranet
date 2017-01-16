@@ -1,7 +1,7 @@
 require_dependency 'customer/application_controller'
 
 module Customer
-  class RequestsController < ApplicationController 
+  class ClientDocumentsController < ApplicationController 
 
     def index
     end

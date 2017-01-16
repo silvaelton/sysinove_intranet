@@ -8,5 +8,33 @@
 .row
   .col-md-12
     .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado:
+          #{@clients.count}
       .panel-body
-        %i Sincronizando
+        .row
+          .col-md-12
+            = link_to "+ Adicionar novo cliente", new_client_path, class: 'btn btn-success btn-sm'
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Cod. 
+                  %th Tipo
+                  %th Nome/Nome Fantasia 
+                  %th CPF/CNPJ 
+                  %th Data de cad. 
+                  %th 
+              %tbody
+                - if @clients.present?
+                  - @clients.each do |client|
+                    %tr
+                      %td
+                - else
+                  %tr
+                    %td{colspan: 6}
+                      %i Nenhum registro encontrado.
+    

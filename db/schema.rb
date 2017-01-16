@@ -10,13 +10,115 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120194633) do
+ActiveRecord::Schema.define(version: 20170116164134) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_accounts_on_code", unique: true
+  end
+
+  create_table "customer_client_alerts", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_id"
+    t.text     "content"
+    t.integer  "priority",   default: 0
+    t.boolean  "publish",    default: false
+    t.date     "expires_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_customer_client_alerts_on_account_id"
+    t.index ["client_id"], name: "index_customer_client_alerts_on_client_id"
+  end
+
+  create_table "customer_client_archives", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "file_path"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["account_id"], name: "index_customer_client_archives_on_account_id"
+    t.index ["client_id"], name: "index_customer_client_archives_on_client_id"
+  end
+
+  create_table "customer_client_categories", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.boolean  "status",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_customer_client_categories_on_account_id"
+  end
+
+  create_table "customer_client_contacts", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_id"
+    t.string   "name"
+    t.string   "telephone"
+    t.string   "telephone_secundary"
+    t.string   "email"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["account_id"], name: "index_customer_client_contacts_on_account_id"
+    t.index ["client_id"], name: "index_customer_client_contacts_on_client_id"
+  end
+
+  create_table "customer_client_documents", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_id"
+    t.text     "description"
+    t.string   "title"
+    t.string   "file_path"
+    t.boolean  "read",        default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["account_id"], name: "index_customer_client_documents_on_account_id"
+    t.index ["client_id"], name: "index_customer_client_documents_on_client_id"
+  end
+
+  create_table "customer_client_messages", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_id"
+    t.text     "content"
+    t.boolean  "read",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_customer_client_messages_on_account_id"
+    t.index ["client_id"], name: "index_customer_client_messages_on_client_id"
+  end
+
+  create_table "customer_client_requests", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_id"
+    t.text     "content"
+    t.boolean  "read",       default: false
+    t.boolean  "complete",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "customer_clients", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "client_category_id"
+    t.string   "personal_name"
+    t.string   "fantasy_name"
+    t.string   "company_name"
+    t.string   "cpf_cnpj"
+    t.string   "state_number"
+    t.string   "city_number"
+    t.string   "address"
+    t.integer  "state_id"
+    t.string   "city"
+    t.string   "complement_address"
+    t.boolean  "status"
+    t.text     "observation"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["account_id"], name: "index_customer_clients_on_account_id"
+    t.index ["client_category_id"], name: "index_customer_clients_on_client_category_id"
   end
 
   create_table "internal_contacts", force: :cascade do |t|

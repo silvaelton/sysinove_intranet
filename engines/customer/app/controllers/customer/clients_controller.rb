@@ -4,6 +4,7 @@ module Customer
   class ClientsController < ApplicationController 
 
     def index
+      @clients = current_account.clients.order('id DESC')
     end
 
     def new

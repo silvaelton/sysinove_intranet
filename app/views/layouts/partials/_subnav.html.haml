@@ -33,7 +33,23 @@
           %span.caret
         %ul.dropdown-menu
           %li
-            %a{:href => "#{customer.root_path}"} Sincronizando
+            %a{:href => "#{customer.new_client_path}"} Adicionar cliente
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.clients_path}"} Meus clientes
+          %li
+            %a{:href => "#{customer.client_categories_path}"} Categorias
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.client_documents_path}"} Documentos
+          %li
+            %a{:href => "#{customer.client_requests_path}"} Solicitações
+          %li
+            %a{:href => "#{customer.client_archives_path}"} Arquivos
+          %li
+            %a{:href => "#{customer.client_messages_path}"} Mensagens
+          %li
+            %a{:href => "#{customer.client_alerts_path}"} Avisos
       %li.dropdown
         %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Gestão Financeira

@@ -5,10 +5,11 @@ Customer::Engine.routes.draw do
   resources :clients, path: 'clientes'
   resources :client_categories, path: 'client_categorias'
   
-  resources :messages,    path: 'mensagens'
-  resources :requests,    path: 'solicitacoes'
-  resources :documents,   path: 'documentos'
-  resources :archives,    path: 'arquivos'
+  resources :client_messages,    path: 'mensagens'
+  resources :client_requests,    path: 'solicitacoes'
+  resources :client_documents,   path: 'documentos'
+  resources :client_archives,    path: 'arquivos'
+  resources :client_alerts,      path: 'alertas'
   
 
 end
