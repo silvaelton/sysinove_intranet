@@ -30,10 +30,10 @@ module Customer
 
     def update
       if @client.update(set_params)
-        render action: :edit
-      else
         flash[:success] = t :success
-        redirect_to action: :show
+        redirect_to @client
+      else
+        render action: :edit
       end
     end
 
@@ -51,9 +51,9 @@ module Customer
 
     def set_params
       params.require(:client).permit(:client_category_id, :client_type, :cpf_cnpj,
-                                     :personal_name, :fantasy_name,
+                                     :personal_name, :fantasy_name, :email, :password,
                                      :cep, :state_id, :city, :address, :complement_address,
-                                     :status, :observation, :company_name, :state_number, :city_number,
+                                     :external, :observation, :company_name, :state_number, :city_number,
                                       client_contacts_attributes: [:name, :telephone, :telephone_secundary, :email,
                                                                    :_destroy, :id])
     end

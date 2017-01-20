@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'simple_form'
 
+gem 'has_scope'
 gem 'validates_cpf_cnpj'
 gem 'validates_timeliness'
 gem 'email_validator'

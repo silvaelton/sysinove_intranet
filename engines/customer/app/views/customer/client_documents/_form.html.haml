@@ -1,0 +1,17 @@
+= simple_form_for @document do |f|
+  .row
+    .col-md-4
+      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), label_method: :complete_name, include_blank: "Selecione o cliente..."
+    .col-md-8
+      = f.input :title, placeholder: "Informe um título"
+  .row
+    .col-md-12
+      = f.input :description, placeholder: "Descreva o documento"
+  .row
+    .col-md-12
+      = f.input :file_path, as: :file
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), client_documents_path, class: 'btn btn-default', data: { disable_with: t(:disable_with)}

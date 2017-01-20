@@ -18,7 +18,23 @@ module Customer
 
     # pessoa jurídica
     validates :cpf_cnpj, cnpj: true, presence: true, if: 'self.pessoa_jurídica?'
-  
+    validates :fantasy_name, :company_name, presence: true, if: 'self.pessoa_jurídica?'
+    
+
+    # acesso externo
+
+    validates :email, email: true, presence: true, if: 'self.external?'
+    validates_uniqueness_of :email, scope: :account_id
+    validates :password, presence: true, length: {minimum: 6, maximum: 24}, if: 'self.external? && self.new_record?'
+
+
+    def complete_name
+      if self.pessoa_física?
+        self.personal_name
+      else 
+        self.company_name
+      end
+    end
 
     def address_present?
       self.cep.present? || 
@@ -34,8 +50,8 @@ module Customer
 
     def complement_present?
       self.observation.present? ||
-      self.status.present?
+      self.external.present?
     end
-    
+
   end
 end

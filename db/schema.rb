@@ -69,12 +69,13 @@ ActiveRecord::Schema.define(version: 20170116164134) do
   create_table "customer_client_documents", force: :cascade do |t|
     t.integer  "account_id"
     t.integer  "client_id"
+    t.integer  "client_document_type", default: 0
     t.text     "description"
     t.string   "title"
     t.string   "file_path"
-    t.boolean  "read",        default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "read",                 default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["account_id"], name: "index_customer_client_documents_on_account_id"
     t.index ["client_id"], name: "index_customer_client_documents_on_client_id"
   end
@@ -114,11 +115,13 @@ ActiveRecord::Schema.define(version: 20170116164134) do
     t.integer  "state_id"
     t.string   "city"
     t.string   "complement_address"
-    t.boolean  "status"
     t.text     "observation"
     t.string   "cep"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "external",           default: false
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["account_id"], name: "index_customer_clients_on_account_id"
     t.index ["client_category_id"], name: "index_customer_clients_on_client_category_id"
   end

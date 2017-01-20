@@ -1,0 +1,23 @@
+pt-BR:
+  activerecord:
+    models:
+      'customer/client': "Cliente"
+    attributes:
+      'customer/client':
+        client_type: "Tipo"
+        client_category: "Categoria"
+        personal_name: "Nome completo"
+        fantasy_name: "Nome fantasia"
+        company_name: "Razão social"
+        state_number: "Insc. Estadual"
+        city_number: "Insc. Municipal"
+        cep: "CEP"
+        state: "Estado"
+        city: "Cidade"
+        address: "Endereço/Logradouro"
+        complement_address: "Complemento"
+        observation: "Observação"
+        external: "Acesso externo ativo?"
+        email: "E-mail"
+        password: "Senha"
+

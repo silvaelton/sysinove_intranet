@@ -4,11 +4,12 @@ class CreateCustomerClientDocuments < ActiveRecord::Migration[5.0]
 
       t.integer  :account_id, index: true
       t.integer  :client_id, index: true 
+      t.integer  :client_document_type, default: 0
       t.text     :description
       t.string   :title 
       t.string   :file_path
       t.boolean  :read, default: false
-      
+            
       t.timestamps
     end
   end

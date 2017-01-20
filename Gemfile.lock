@@ -77,6 +77,9 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    has_scope (0.7.0)
+      actionpack (>= 4.1, < 5.1)
+      activesupport (>= 4.1, < 5.1)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -209,6 +212,7 @@ DEPENDENCIES
   finance!
   fullcalendar-rails
   haml-rails
+  has_scope
   internal!
   jbuilder (~> 2.5)
   jquery-rails

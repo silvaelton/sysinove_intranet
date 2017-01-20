@@ -15,9 +15,12 @@ class CreateCustomerClients < ActiveRecord::Migration[5.0]
       t.integer :state_id
       t.string  :city 
       t.string  :complement_address 
-      t.boolean :status 
       t.text    :observation 
       t.string  :cep
+
+      t.boolean :external, default: false 
+      t.string  :email
+      t.string  :password
 
       t.timestamps
     end

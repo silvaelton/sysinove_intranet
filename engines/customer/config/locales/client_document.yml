@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      'customer/client_document': "Documento"
+    attributes:
+      'customer/client_document':
+        title: "Título"
+        description: "Descrição"
+        client: "Cliente destino"
+        file_path: "Arquivo"

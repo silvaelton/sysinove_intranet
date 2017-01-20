@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      'customer/client_contact': "Contato"
+    attributes:
+      'customer/client_contact':
+        name: "Nome"
+        telephone: "Telefone"
+        telephone_secundary: "Celular"
+        email: "E-mail"

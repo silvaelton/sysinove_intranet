@@ -1,0 +1,42 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de documentos
+      %small
+        %p Detalhamento de documentos
+      = link_to "Retornar para listagem",  client_documents_path, class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Detalhamento documento
+      .panel-body
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr 
+                  %th Cliente
+                  %th Data de processamento
+                  %th Situação
+                  %th Lido
+              %tbody
+                %tr 
+                  %td= @document.client.complete_name
+                  %td= @document.created_at.strftime("%d/%m/%Y às %H:%M")
+                  %td= @document.client_document_type.humanize
+                  %td= @document.read? ? "Sim" :  "Não"
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr 
+                  %th Título
+                  %th Descrição
+                  %th Arquivo
+              %tbody
+                %tr 
+                  %td= @document.title
+                  %td= @document.description
+                  %td= @document.file_path

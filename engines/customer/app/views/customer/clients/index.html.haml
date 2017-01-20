@@ -27,12 +27,32 @@
                   %th Nome/Nome Fantasia 
                   %th CPF/CNPJ 
                   %th Data de cad. 
+                  %th Acesso externo?
                   %th 
               %tbody
                 - if @clients.present?
                   - @clients.each do |client|
                     %tr
-                      %td
+                      %td.col-md-1= client.id
+                      %td.col-md-2= client.client_type.humanize
+                      - if client.pessoa_física?
+                        %td= client.personal_name
+                        %td.col-md-2= client.cpf_cnpj
+                      - else
+                        %td= client.company_name
+                        %td.col-md-2= client.cpf_cnpj
+                      %td.col-md-2= client.created_at.strftime("%d/%m/%Y às %H:%M")
+                      %td.col-md-2= client.external? ? "Sim" : "Não"
+                      %td.col-md-1
+                        .btn-group
+                          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                            Ações
+                            %span.caret
+                          %ul.dropdown-menu
+                            %li
+                              %a{:href => "#{customer.edit_client_path(client)}"} Editar
+                            %li
+                              %a{:href => "#{customer.client_path(client)}", :data => { method: :delete, confirm: t(:confirm)}} Remover
                 - else
                   %tr
                     %td{colspan: 6}

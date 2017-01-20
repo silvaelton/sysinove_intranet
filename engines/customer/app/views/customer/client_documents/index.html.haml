@@ -1,0 +1,71 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de documentos
+      %small
+        %p listagem de documentos de clientes
+.divider
+.row
+  .col-md-2
+    %ul.list-group
+      %li.list-group-item
+        %b= link_to "+ Novo documento", new_client_document_path
+      %li.list-group-item
+        %span.badge 0
+        = link_to "Entrada", client_documents_path(by_document_type: 0)
+      %li.list-group-item
+        %span.badge 0
+        = link_to "Saída", client_documents_path(by_document_type: 1)
+    
+  .col-md-10
+    .panel.panel-default
+      .panel-heading
+        %b Listagem de documentos
+      .panel-body
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-2
+              = f.input :by_document_type, label: "Tipo", as: :select, include_blank: "Todos", collection: ::Customer::ClientDocument.client_document_types.map { |k,v| [k.humanize, v]}
+            .col-md-2
+              = f.input :by_read, label: "Lido", as: :select, include_blank: "Todos"
+            .col-md-2
+              = f.input :by_started_at, as: :string, label: "Data início", input_html: { class: 'date'}
+            .col-md-2
+              = f.input :by_ended_at, as: :string, label: "Data fim", input_html: { class: 'date'}
+            .col-md-2
+              = f.submit "Filtrar listagem", name: nil, class: 'btn btn-primary filter', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr 
+                  %th Data
+                  %th Cliente
+                  %th Título
+                  %th Situação
+                  %th Lido?
+              %tbody
+                - if !@documents.present?
+                  %tr
+                    %td{colspan: 3}
+                      %i Nenhum documento movimentado.
+                - else
+                  - @documents.each do |document|
+                    %tr 
+                      %td.col-md-2= document.created_at.strftime("%d/%m/%Y às %H:%M")
+                      %td.col-md-4= document.client.complete_name
+                      %td.col-md-6= link_to document.title, client_document_path(document)
+                      %td
+                        - if document.saída?
+                          %span.label.label-success
+                            Saída
+                        - else
+                          %span.label.label-primary
+                            Entrada
+                      %td
+                        - if document.read?
+                          %span.label.label-success
+                            Sim
+                        - else
+                          %span.label.label-danger
+                            Não

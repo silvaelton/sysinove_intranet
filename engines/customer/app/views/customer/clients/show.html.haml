@@ -1,0 +1,168 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de clientes
+      %small
+        %p Detalhamento de cliente
+      = link_to "Retornar para listagem", clients_path, class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
+      = link_to "Editar cliente", edit_client_path(@client), class: 'btn btn-success', data: {disable_with:  t(:disable_with)}
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Detalhamento cliente
+      .panel-body
+        .row
+          .col-md-12
+            - if @client.pessoa_física?
+              %h2
+                %b= @client.personal_name
+            - else
+              %h2
+                %b= @client.fantasy_name
+        .divider
+        - if @client.pessoa_física?
+          .row
+            .col-md-12
+              %table.table.table-striped
+                %thead
+                  %tr
+                    %th CPF
+                    %th Nome completo
+                %tbody
+                  %tr
+                    %td= @client.cpf_cnpj
+                    %td= @client.personal_name
+        - else
+          .row
+            .col-md-12
+              %table.table.table-striped
+                %thead
+                  %tr
+                    %th CNPJ
+                    %th Razão social
+                    %th Nome fantasia
+                    %th Insc. Estadual
+                    %th Insc. Municipal
+                %tbody
+                  %tr
+                    %td= @client.cpf_cnpj
+                    %td= @client.company_name
+                    %td= @client.fantasy_name
+                    %td= @client.state_number
+                    %td= @client.city_number
+        .divider
+        %h4 Dados de localização e endereço
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th CEP
+                  %th Estado
+                  %th Cidade
+              %tbody
+                %tr
+                  %td= @client.cep
+                  %td= @client.state rescue nil
+                  %td= @client.city
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Endereço
+                  %th Complemento
+              %tbody
+                %tr
+                  %td= @client.address
+                  %td= @client.complement_address
+
+        .divider
+        %h4 Dados de contato
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Nome
+                  %th Telefone
+                  %th Celular
+                  %th E-mail
+              %tbody
+                - @client.client_contacts.each do |contact|
+                  %tr
+                    %td= contact.name
+                    %td= contact.telephone
+                    %td= contact.telephone_secundary
+                    %td= contact.email
+
+        .divider
+        %h4 Dados complementares
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Possuí acesso externo?
+                  %th Usuário/E-mail
+              %tbody
+                %tr
+                  %td= @client.external? ? "Sim" : "Não"
+                  %td= @client.email
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Observação
+              %tbody
+                %tr
+                  %td= @client.observation
+        .divider
+        %h4 Mensagens
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Data/Hora
+                  %th Descrição
+              %tbody
+                %tr
+                  %td{colspan: 2}
+                    %i Nenhuma mensagem cadastrada.
+                  
+
+
+
+        .divider
+        %h4 Documentos
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Data/Hora
+                  %th Descrição
+              %tbody
+                %tr
+                  %td{colspan: 2}
+                    %i Nenhum documento cadastrado.
+                  
+
+        .divider
+        %h4 Solicitações
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Data/Hora
+                  %th Descrição
+              %tbody
+                %tr
+                  %td{colspan: 2}
+                    %i Nenhuma solicitação cadastrada.
+                  
