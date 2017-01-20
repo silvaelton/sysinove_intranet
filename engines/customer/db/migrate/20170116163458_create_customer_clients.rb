@@ -4,6 +4,7 @@ class CreateCustomerClients < ActiveRecord::Migration[5.0]
 
       t.integer :account_id, index: true 
       t.integer :client_category_id, index: true
+      t.integer :client_type, default: 0
       t.string  :personal_name
       t.string  :fantasy_name
       t.string  :company_name
@@ -16,6 +17,7 @@ class CreateCustomerClients < ActiveRecord::Migration[5.0]
       t.string  :complement_address 
       t.boolean :status 
       t.text    :observation 
+      t.string  :cep
 
       t.timestamps
     end

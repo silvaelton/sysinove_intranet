@@ -1,0 +1,13 @@
+%fieldset
+  .row
+    .col-md-3
+      = f.input :name
+    .col-md-2
+      = f.input :telephone
+    .col-md-2
+      = f.input :telephone_secundary
+    .col-md-3
+      = f.input :email
+    .col-md-2
+      = f.input :_destroy, as: :hidden
+      = link_to "remover", "#", class: "remove_fields btn btn-danger btn filter"

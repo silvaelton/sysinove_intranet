@@ -2,6 +2,7 @@
   margin-top: 100px;
 }
 
+
 h1.super {
   font-size: 45px !important;
   font-weight: bold;
@@ -82,4 +83,9 @@ small {
 
 .filter {
   margin-top: 24px !important;
+}
+
+
+.hint-association .form-group {
+  margin-bottom: 0px !important;
 }

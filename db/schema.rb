@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170116164134) do
   create_table "customer_clients", force: :cascade do |t|
     t.integer  "account_id"
     t.integer  "client_category_id"
+    t.integer  "client_type",        default: 0
     t.string   "personal_name"
     t.string   "fantasy_name"
     t.string   "company_name"
@@ -115,8 +116,9 @@ ActiveRecord::Schema.define(version: 20170116164134) do
     t.string   "complement_address"
     t.boolean  "status"
     t.text     "observation"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "cep"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["account_id"], name: "index_customer_clients_on_account_id"
     t.index ["client_category_id"], name: "index_customer_clients_on_client_category_id"
   end

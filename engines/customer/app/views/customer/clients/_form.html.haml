@@ -1,0 +1,109 @@
+= simple_form_for @client do |f|
+  .row
+    .col-md-3
+      = f.input :client_type, as: :select, collection: ::Customer::Client.client_types.map { |k,v| [k.humanize, k]}, include_blank: false, input_html: { id: "client_type"}
+  
+    .col-md-4
+      .hint-association
+        = f.association :client_category, include_blank: "selecione...", input_html: { id: "option-categories"}
+      = f.hint link_to "+ Adicionar nova categoria", new_client_category_path, remote: true , data: { disable_with: t(:disable_with)}
+  .row
+    .col-md-3
+      = f.label :cpf_cnpj, (f.object.client_type == 'pessoa_física') ? "CPF" : "CNPJ", id: "label_cpf_cnpj"
+      = f.input :cpf_cnpj, label: false, input_html: { id: "cpf_cnpj", class: (f.object.client_type == 'pessoa_física') ? "cpf" : "cnpj"}
+  .row
+    #personal_fisic_area{style: f.object.pessoa_física? ? 'display: block;': 'display: none;'}
+      .col-md-12
+        = f.input :personal_name
+    #personal_juridical_area{style: f.object.pessoa_jurídica? ? 'display: block;': 'display: none;'}
+      .col-md-3
+        = f.input :fantasy_name
+      .col-md-3
+        = f.input :company_name
+      .col-md-3
+        = f.input :state_number
+      .col-md-3
+        = f.input :city_number
+  
+  .divider
+  %label 
+    %h4
+      %a{"aria-controls" => "address", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#address", :role => "button"}
+        Dados de endereço & localização  
+  .divider
+
+  .collapse#address{class: f.object.address_present? ?  'in' : ''}
+    .row
+      .col-md-2
+        = f.input :cep
+      .col-md-3
+        = f.input :state_id
+      .col-md-7
+        = f.input :city
+    .row
+      .col-md-12
+        = f.input :address
+    .row
+      .col-md-12
+        = f.input :complement_address
+  .divider  
+  %label 
+    %h4
+      %a{"aria-controls" => "contact", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#contact", :role => "button"}
+        Dados de contato
+  .divider
+
+  .collapse#contact{class: f.object.contact_present? ?  'in' : ''}
+    .row
+      = f.simple_fields_for :client_contacts do |builder|
+        .col-md-12
+          = render 'client_contact_fields', f: builder
+          = link_to_add_fields "+ Adicionar contato", f, :client_contacts
+  .divider
+
+  %label 
+    %h4
+      %a{"aria-controls" => "complement", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#complement", :role => "button"}
+        Dados de complementares
+  .divider
+
+  .collapse#complement{class: f.object.complement_present? ?  'in' : ''}
+    .row
+      .col-md-2
+        = f.input :status, as: :select, include_blank: false
+      .col-md-12
+        = f.input :observation
+
+  .divider
+  .row
+    .col-md-6
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), clients_path(@params), data: { disable_with: t(:disable_with)}, class: 'btn btn-default'
+
+:javascript
+  $("#client_type").on('change', function() {
+    var client_type = $(this).val()
+
+    if(client_type == 'pessoa_física') {
+
+
+      $("#cpf_cnpj").removeClass('cnpj')
+      $("#cpf_cnpj").addClass('cpf')
+      $("#label_cpf_cnpj").html('CPF')
+
+      $("#personal_juridical_area").hide();
+      $("#personal_fisic_area").fadeIn('slow');
+    
+    }
+
+    if(client_type == 'pessoa_jurídica') {
+     
+      $("#cpf_cnpj").removeClass('cpf')
+      $("#cpf_cnpj").addClass('cnpj')
+      $("#label_cpf_cnpj").html('CNPJ')
+      
+      $("#personal_fisic_area").hide();
+      $("#personal_juridical_area").fadeIn('slow');
+    
+    }
+  })

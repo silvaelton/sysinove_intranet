@@ -6,6 +6,6 @@ module Customer
 
     layout 'application'
 
-    
+    helper ::ApplicationHelper
   end
 end

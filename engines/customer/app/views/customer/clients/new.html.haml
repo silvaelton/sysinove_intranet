@@ -4,5 +4,12 @@
       Gestão de clientes
       %small
         %p Criação de clientes
+      = link_to "Retornar para listagem", clients_path, class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
 .divider
 .row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Novo cliente
+      .panel-body
+        = render 'form'

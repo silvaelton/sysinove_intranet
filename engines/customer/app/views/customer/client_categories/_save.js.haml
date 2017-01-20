@@ -1,6 +1,7 @@
 - if @category.errors.any?
   $("#modal .modal-body").html("#{escape_javascript(render 'form')}")
 - else
+  $("#option-categories").html("#{escape_javascript(render 'select_option')}")
   $("#modal .modal-body").html("#{escape_javascript(render 'layouts/partials/modal_success')}")
   $(".index-each").html("#{escape_javascript(render 'index')}")
   setTimeout(function(){ $("#modal").modal('hide') }, 2000);
