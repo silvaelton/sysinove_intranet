@@ -1,0 +1,19 @@
+= simple_form_for @alert do |f|
+  .row
+    .col-md-4
+      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), label_method: :complete_name, include_blank: "Para todos os clientes"
+  .row
+    .col-md-12
+      = f.input :content, placeholder: "Descreva o alerta"
+  .row
+    .col-md-3
+      = f.input :priority, as: :select, collection: ::Customer::ClientAlert.priorities.map { |k,v| [k.humanize, k]}, include_blank: false
+    .col-md-2
+      = f.input :publish, as: :select, include_blank: false
+    .col-md-2
+      = f.input :expires_at, as: :string, input_html: { class: 'date'}
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), client_alerts_path, class: 'btn btn-default', data: { disable_with: t(:disable_with)}

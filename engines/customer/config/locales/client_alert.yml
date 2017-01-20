@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      'customer/client_alert': "Alerta"
+    attributes:
+      'customer/client_alert':
+        content: "Conteúdo"
+        client: "Cliente"
+        publish: "Publicado?"
+        priority: "Prioridade"
+        expires_at: "Expira em"

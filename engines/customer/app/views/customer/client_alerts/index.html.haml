@@ -1,0 +1,59 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de alertas
+      %small
+        %p listagem de alertas
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Listagem de alertas
+      
+      .panel-body
+      
+        .row
+          .col-md-12
+            = link_to "+ Adicionar alerta", new_client_alert_path, class: 'btn btn-success btn-sm', data: { disable_with: t(:disable_with)}
+        .divider
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-2
+              = f.input :by_priority, label: "Prioridade", as: :select, include_blank: "Todas", collection: ::Customer::ClientAlert.priorities.map { |k,v| [k.humanize, v]}
+            .col-md-2
+              = f.submit "Filtrar listagem", name: nil, class: 'btn btn-primary filter', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr 
+                  %th Cod.
+                  %th Prioridade
+                  %th Conteúdo
+                  %th Expira em
+                  %th Publicado?
+                  %th 
+              %tbody
+                - if @alerts.present?
+                  - @alerts.each do |alert|
+                    %tr
+                      %td= alert.id
+                      %td= alert.priority.humanize
+                      %td= alert.content
+                      %td= alert.expires_at.strftime("%d/%m/%Y") rescue "Não expira"
+                      %td= alert.publish? ? "Sim" : "Não"
+                      %td.col-md-1
+                        .btn-group
+                          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                            Ações
+                            %span.caret
+                          %ul.dropdown-menu
+                            %li
+                              %a{:href => "#{customer.edit_client_alert_path(alert)}"} Editar
+                            %li
+                              %a{:href => "#{customer.client_alert_path(alert)}", :data => { method: :delete, confirm: t(:confirm)}} Remover
+                - else 
+                  %tr 
+                    %td{colspan: 6}
+                      %i Sem registros.
