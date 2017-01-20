@@ -1,12 +1,73 @@
 .row
   .col-md-12
     %h1.title 
-      Visão geral de clientes
+      Visão Geral
       %small
-        %p Balance geral
+        %p Visão geral do módulo de clientes
 .divider
 .row
-  .col-md-12
-    .panel.panel-default
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b Clientes cadastrados
       .panel-body
-        %i Sincronizando
+        %h1.super 0
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b  Solicitações pendentes
+      .panel-body
+        %h1.super 0
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b  Documentos pendentes
+      .panel-body
+        %h1.super 0
+  .col-md-3
+    .panel.panel-inverse
+      .panel-heading{style: 'text-align: center'}
+        %h4
+          %b  Mensagens pendentes
+      .panel-body
+        %h1.super= current_account.staffs.count
+.row
+  .col-md-6
+    .panel.panel-success
+      .panel-heading
+        %b Últimas solicitações
+      .panel-body
+        %table.table.table-striped.table-bordered
+          %thead 
+            %tr 
+              %th Data/Hora
+              %th.col-md-5 Cliente
+          %tbody
+  .col-md-6
+    .panel.panel-success
+      .panel-heading
+        %b Últimas mensagens
+      .panel-body
+        %table.table.table-striped.table-bordered
+          %thead 
+            %tr 
+              %th Data/Hora
+              %th.col-md-5 Cliente
+          %tbody
+
+.row
+  .col-md-12
+    .panel.panel-primary
+      .panel-heading
+        %b Últimos documentos trocados
+      .panel-body
+        %table.table.table-striped.table-bordered
+          %thead 
+            %tr 
+              %th Data/Hora
+              %th.col-md-5 Cliente
+              %th.col-md-5 Documento
+          %tbody
