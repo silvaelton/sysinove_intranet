@@ -84,9 +84,10 @@ ActiveRecord::Schema.define(version: 20170116164134) do
     t.integer  "account_id"
     t.integer  "client_id"
     t.text     "content"
-    t.boolean  "read",       default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "read",                default: false
+    t.integer  "client_message_type", default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["account_id"], name: "index_customer_client_messages_on_account_id"
     t.index ["client_id"], name: "index_customer_client_messages_on_client_id"
   end

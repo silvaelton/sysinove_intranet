@@ -1,7 +1,7 @@
 = simple_form_for @document do |f|
   .row
     .col-md-4
-      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), label_method: :complete_name, include_blank: "Selecione o cliente..."
+      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), label_method: :complete_name, include_blank: "Selecione o cliente...", label_method: :complete_name
     .col-md-8
       = f.input :title, placeholder: "Informe um título"
   .row

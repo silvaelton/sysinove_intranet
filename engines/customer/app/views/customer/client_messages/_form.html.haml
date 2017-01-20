@@ -1,0 +1,11 @@
+= simple_form_for @message do |f|
+  .row
+    .col-md-4
+      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), include_blank: "selecione...", label_method: :complete_name
+  .row
+    .col-md-12
+      = f.input :content
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), client_messages_path, class: 'btn btn-default'

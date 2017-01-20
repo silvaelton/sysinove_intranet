@@ -6,6 +6,7 @@ class CreateCustomerClientMessages < ActiveRecord::Migration[5.0]
       t.integer :client_id, index: true
       t.text    :content
       t.boolean :read, default: false 
+      t.integer :client_message_type, default: 0
 
       t.timestamps
     end

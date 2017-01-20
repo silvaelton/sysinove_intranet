@@ -1,7 +1,7 @@
 = simple_form_for @alert do |f|
   .row
     .col-md-4
-      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), label_method: :complete_name, include_blank: "Para todos os clientes"
+      = f.association :client, collection: current_account.clients.order(:personal_name, :company_name), include_blank: "para todos os clientes", label_method: :complete_name
   .row
     .col-md-12
       = f.input :content, placeholder: "Descreva o alerta"

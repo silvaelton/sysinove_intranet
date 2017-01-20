@@ -6,10 +6,10 @@
     .col-md-12
       = f.input :content, placeholder: "Descreva o documento"
   .row
-    .col-md-12
+    .col-md-3
       = f.input :file_path, as: :file
   .divider
   .row
     .col-md-12
       = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
-      = link_to t(:cancel), client_documents_path, class: 'btn btn-default', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), client_requests_path, class: 'btn btn-default', data: { disable_with: t(:disable_with)}

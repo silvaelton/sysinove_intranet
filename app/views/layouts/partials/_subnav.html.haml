@@ -33,6 +33,9 @@
           %span.caret
         %ul.dropdown-menu
           %li
+            %a{:href => "#{customer.root_path}"} Visão Geral
+          %li.divider{:role => "separator"}
+          %li
             %a{:href => "#{customer.new_client_path}"} Adicionar cliente
           %li.divider{:role => "separator"}
           %li

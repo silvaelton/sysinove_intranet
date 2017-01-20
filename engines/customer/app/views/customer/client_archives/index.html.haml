@@ -1,0 +1,56 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de arquivos
+      %small
+        %p listagem de arquivos
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado: 0
+      .panel-body
+        .row
+          .col-md-12
+            = link_to "+ Adicionar novo arquivo", new_client_archive_path, class: 'btn btn-success btn-sm'
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Cod. 
+                  %th Nome
+                  %th Descrição
+                  %th 
+              %tbody
+                - if @archives.present?
+                  - @archives.each do |archive|
+                    %tr
+                      %td.col-md-1= archive.id
+                      %td.col-md-2= archive.archive_type.humanize
+                      - if archive.pessoa_física?
+                        %td= archive.personal_name
+                        %td.col-md-2= archive.cpf_cnpj
+                      - else
+                        %td= archive.company_name
+                        %td.col-md-2= archive.cpf_cnpj
+                      %td.col-md-2= archive.created_at.strftime("%d/%m/%Y às %H:%M")
+                      %td.col-md-2= archive.external? ? "Sim" : "Não"
+                      %td.col-md-1
+                        .btn-group
+                          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                            Ações
+                            %span.caret
+                          %ul.dropdown-menu
+                            %li
+                              %a{:href => "#{customer.edit_client_archive_path(archive)}"} Editar
+                            %li
+                              %a{:href => "#{customer.client_archive_path(archive)}", :data => { method: :delete, confirm: t(:confirm)}} Remover
+                - else
+                  %tr
+                    %td{colspan: 6}
+                      %i Nenhum registro encontrado.
+    

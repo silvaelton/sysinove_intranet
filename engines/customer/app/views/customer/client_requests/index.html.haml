@@ -11,10 +11,10 @@
       %li.list-group-item
         %b= link_to "+ Nova solicitação", new_client_request_path
       %li.list-group-item
-        %span.badge 0 
+        %span.badge= @requests.receiver.count
         = link_to "Entrada", client_requests_path(by_document_type: 0)
       %li.list-group-item
-        %span.badge 0
+        %span.badge= @requests.sender.count
         = link_to "Saída", client_requests_path(by_document_type: 1)
     
   .col-md-10
@@ -25,7 +25,7 @@
         .row
           = simple_form_for url_for, method: :get do |f|
             .col-md-2
-              = f.input :by_document_type, label: "Tipo", as: :select, include_blank: "Todos", collection: ::Customer::ClientDocument.client_document_types.map { |k,v| [k.humanize, v]}
+              = f.input :by_document_type, label: "Tipo", as: :select, include_blank: "Todos", collection: ::Customer::ClientRequest.client_request_types.map { |k,v| [k.humanize, v]}
             .col-md-2
               = f.input :by_read, label: "Lido", as: :select, include_blank: "Todos"
             .col-md-2
@@ -45,25 +45,25 @@
                   %th Situação
                   %th Lido?
               %tbody
-                - if !@documents.present?
+                - if !@requests.present?
                   %tr
                     %td{colspan: 5}
-                      %i Nenhum documento movimentado.
+                      %i Nenhuma solicitação registrada.
                 - else
-                  - @documents.each do |document|
+                  - @requests.each do |request|
                     %tr 
-                      %td.col-md-2= document.created_at.strftime("%d/%m/%Y às %H:%M")
-                      %td.col-md-4= document.client.complete_name
-                      %td.col-md-6= link_to document.title, client_document_path(document)
+                      %td.col-md-2= request.created_at.strftime("%d/%m/%Y às %H:%M")
+                      %td.col-md-4= request.client.complete_name
+                      %td.col-md-6= link_to request.content, client_request_path(request)
                       %td
-                        - if document.saída?
+                        - if request.saída?
                           %span.label.label-success
                             Saída
                         - else
                           %span.label.label-primary
                             Entrada
                       %td
-                        - if document.read?
+                        - if request.read?
                           %span.label.label-success
                             Sim
                         - else

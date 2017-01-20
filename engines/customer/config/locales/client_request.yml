@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      'customer/client_request': "Solicitação"
+    attributes:
+      'customer/client_request':
+        content: "Conteúdo"
+        client: "Cliente"
+        file_path: "Arquivo referência"

@@ -50,7 +50,7 @@ module Customer
     private
 
     def set_params
-      params.require(:client_request).permit(:client_id, :description, :title, :file_path)
+      params.require(:client_request).permit(:client_id, :content, :file_path)
     end
 
     def set_request

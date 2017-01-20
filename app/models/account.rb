@@ -13,6 +13,7 @@ class Account < ApplicationRecord
   has_many :client_documents,  class_name: "::Customer::ClientDocument"
   has_many :client_requests,   class_name: "::Customer::ClientRequest"
   has_many :client_alerts,     class_name: "::Customer::ClientAlert"
+  has_many :client_messages,   class_name: "::Customer::ClientMessage"
 
 
 end

@@ -6,7 +6,67 @@
         %p listagem de mensagens de clientes
 .divider
 .row
-  .col-md-12
+  .col-md-2
+    %ul.list-group
+      %li.list-group-item
+        %b= link_to "+ Nova mensagem", new_client_message_path
+      %li.list-group-item
+        %span.badge= @messages.sender.count
+        = link_to "Entrada", client_messages_path(by_document_type: 0)
+      %li.list-group-item
+        %span.badge= @messages.receiver.count
+        = link_to "Saída", client_messages_path(by_document_type: 1)
+    
+  .col-md-10
     .panel.panel-default
+      .panel-heading
+        %b Listagem de documentos
       .panel-body
-        %i Sincronizando
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-2
+              = f.input :by_document_type, label: "Tipo", as: :select, include_blank: "Todos", collection: ::Customer::ClientMessage.client_message_types.map { |k,v| [k.humanize, v]}
+            .col-md-2
+              = f.input :by_read, label: "Lido", as: :select, include_blank: "Todos"
+            .col-md-2
+              = f.input :by_started_at, as: :string, label: "Data início", input_html: { class: 'date'}
+            .col-md-2
+              = f.input :by_ended_at, as: :string, label: "Data fim", input_html: { class: 'date'}
+            .col-md-2
+              = f.submit "Filtrar listagem", name: nil, class: 'btn btn-primary filter', data: { disable_with: t(:disable_with)}
+        .row
+          .col-md-12
+            %table.table.table-striped
+              %thead
+                %tr 
+                  %th Data
+                  %th Cliente
+                  %th Conteúdo
+                  %th Lido?
+                  %th Tipo
+              %tbody
+                - if @messages.present?
+                  - @messages.each do |message|
+                    %tr
+                      %td= message.created_at.strftime("%d/%m/%Y")
+                      %td= message.client.complete_name
+                      %td= link_to message.content
+                      %td
+                        - if message.saída?
+                          %span.label.label-success
+                            Saída
+                        - else
+                          %span.label.label-primary
+                            Entrada
+                      %td
+                        - if message.read?
+                          %span.label.label-success
+                            Sim
+                        - else
+                          %span.label.label-danger
+                            Não
+                - else
+                  %tr
+                    %td{colspan: 5}
+                      %i Nenhum registro encontrado.
+                      

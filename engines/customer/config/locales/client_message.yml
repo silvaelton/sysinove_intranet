@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      'customer/client_message': "Mensagem"
+    attributes:
+      'customer/client_message':
+        content: "Conteúdo"
+        client: "Cliente"
