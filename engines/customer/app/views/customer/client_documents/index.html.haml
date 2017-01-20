@@ -11,10 +11,10 @@
       %li.list-group-item
         %b= link_to "+ Novo documento", new_client_document_path
       %li.list-group-item
-        %span.badge 0
+        %span.badge= @documents.receiver.count
         = link_to "Entrada", client_documents_path(by_document_type: 0)
       %li.list-group-item
-        %span.badge 0
+        %span.badge= @documents.sender.count
         = link_to "Saída", client_documents_path(by_document_type: 1)
     
   .col-md-10

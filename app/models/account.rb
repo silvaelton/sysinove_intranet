@@ -11,5 +11,6 @@ class Account < ApplicationRecord
   has_many :clients,           class_name: "::Customer::Client"
   has_many :client_categories, class_name: "::Customer::ClientCategory"
   has_many :client_documents,  class_name: "::Customer::ClientDocument"
+  has_many :client_requests,   class_name: "::Customer::ClientRequest"
 
 end

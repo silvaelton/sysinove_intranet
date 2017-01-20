@@ -95,10 +95,12 @@ ActiveRecord::Schema.define(version: 20170116164134) do
     t.integer  "account_id"
     t.integer  "client_id"
     t.text     "content"
-    t.boolean  "read",       default: false
-    t.boolean  "complete",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "file_path"
+    t.integer  "client_request_type", default: 0
+    t.boolean  "read",                default: false
+    t.boolean  "complete",            default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "customer_clients", force: :cascade do |t|

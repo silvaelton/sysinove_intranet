@@ -5,6 +5,8 @@ class CreateCustomerClientRequests < ActiveRecord::Migration[5.0]
       t.integer :account_id, integer: true
       t.integer :client_id, integer: true 
       t.text    :content
+      t.string  :file_path
+      t.integer :client_request_type, default: 0
       t.boolean :read, default: false
       t.boolean :complete, default: false
       t.timestamps

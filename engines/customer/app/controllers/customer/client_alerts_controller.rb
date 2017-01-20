@@ -1,7 +1,7 @@
 require_dependency 'customer/application_controller'
 
 module Customer
-  class ClientRequestsController < ApplicationController 
+  class ClientAlertsController < ApplicationController 
     before_action :set_request, only: [:show, :destroy, :edit, :update]
     def index
       @requests = apply_scopes(current_account.client_requests).all
