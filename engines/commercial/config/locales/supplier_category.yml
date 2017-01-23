@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      'commercial/supplier_category': "Categoria"
+    attributes:
+      'commercial/supplier_category':
+        name: "Nome"
+        status: "Ativo?"

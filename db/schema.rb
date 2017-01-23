@@ -10,13 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116164134) do
+ActiveRecord::Schema.define(version: 20170123163921) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_accounts_on_code", unique: true
+  end
+
+  create_table "commercial_supplier_categories", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.boolean  "status",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_commercial_supplier_categories_on_account_id"
+  end
+
+  create_table "commercial_supplier_contacts", force: :cascade do |t|
+    t.integer  "supplier_id"
+    t.string   "name"
+    t.string   "telephone"
+    t.string   "telephone_secundary"
+    t.string   "email"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["supplier_id"], name: "index_commercial_supplier_contacts_on_supplier_id"
+  end
+
+  create_table "commercial_suppliers", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "supplier_category_id"
+    t.integer  "supplier_type",        default: 0
+    t.string   "social_reason"
+    t.string   "personal_name"
+    t.string   "cpf_cnpj"
+    t.integer  "state_id"
+    t.string   "city"
+    t.string   "address"
+    t.string   "cep"
+    t.string   "complement_address"
+    t.text     "observation"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["account_id"], name: "index_commercial_suppliers_on_account_id"
+    t.index ["state_id"], name: "index_commercial_suppliers_on_state_id"
+    t.index ["supplier_category_id"], name: "index_commercial_suppliers_on_supplier_category_id"
   end
 
   create_table "customer_client_alerts", force: :cascade do |t|

@@ -67,7 +67,32 @@
           %span.caret
         %ul.dropdown-menu
           %li
-            %a{:href => "#{customer.root_path}"} Sincronizando
+            %a{:href => "#{customer.root_path}"} Visão geral
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.root_path}"} Meu estoque
+          %li
+            %a{:href => "#{customer.root_path}"} Entrada/Saída
+          %li
+            %a{:href => "#{customer.root_path}"} Compra/Venda
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{commercial.suppliers_path}"} Fornecedores
+          %li
+            %a{:href => "#{commercial.supplier_categories_path}"} Categoria de fornecedores
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.root_path}"} Emissão de boleto
+          %li
+            %a{:href => "#{customer.root_path}"} Configurações de boleto
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.root_path}"} Disparo de newslleter
+          %li
+            %a{:href => "#{customer.root_path}"} Minhas newslleters
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{customer.root_path}"} Categoria de items
 
       %li.dropdown
         %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

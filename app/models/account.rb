@@ -15,5 +15,7 @@ class Account < ApplicationRecord
   has_many :client_alerts,     class_name: "::Customer::ClientAlert"
   has_many :client_messages,   class_name: "::Customer::ClientMessage"
 
-
+  # commercial engine
+  has_many :suppliers,           class_name: "::Commercial::Supplier"
+  has_many :supplier_categories, class_name: "::Commercial::SupplierCategory"
 end

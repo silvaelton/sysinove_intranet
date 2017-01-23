@@ -1,0 +1,31 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de categorias de fornecedor
+      %small
+        %p listagem de categorias de fornecedor
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado:
+          #{@categories.count}
+      .panel-body
+        .row
+          .col-md-12
+            = link_to "+ Adicionar nova categoria", new_supplier_category_path, class: 'btn btn-success btn-sm', remote: true
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th #
+                  %th Nome
+                  %th Ativa?
+                  %th
+              %tbody.index-each
+                = render 'index'
+    

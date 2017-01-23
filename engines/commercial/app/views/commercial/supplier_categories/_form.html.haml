@@ -1,0 +1,11 @@
+= simple_form_for @category, remote: true do |f|
+  .row
+    .col-md-12
+      = f.input :name
+  .row
+    .col-md-4
+      = f.input :status, as: :select, include_blank: false
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success btn-sm'
