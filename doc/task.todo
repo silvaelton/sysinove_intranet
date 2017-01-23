@@ -1,9 +1,28 @@
- ☐ setores
- ☐ funcionários
- ☐ anotações
- ☐ contatos
- ☐ chat geral
- ☐ tarefas
- ☐ eventos
- ☐ agenda
- ☐ visão geral
+Commercial:
+ ☐ modelagem
+ ☐ gestão de estoque
+ ☐ gestão de entrada e saída
+ ☐ gestão de fornecedores
+ ☐ gestão de vendas e compras
+ ☐ emissão de boletos
+ ☐ newsletter
+ ☐ relatórios
+
+ Financial:
+ ☐ gestão de contas
+ ☐ gestão de pagamentos
+ ☐ gestão de entrada e saída
+ ☐ gestão de vencíveis
+ ☐ gestão de agendamento de pagamentos
+ ☐ emissão de boletos
+ ☐ relatórios
+
+ Site:
+ ☐ gestão de postagens
+ ☐ gestão de páginas
+ ☐ gestão de plugins
+ ☐ gestão de templates
+ ☐ gestão de componentes
+ ☐ gestão de menus
+ ☐ newsletter
+ ☐ relatórios
