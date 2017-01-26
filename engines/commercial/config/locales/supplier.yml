@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      'commercial/supplier': "Fornecedor"
+    attributes:
+      'commercial/supplier':
+        supplier_type: "Tipo"
+        supplier_category: "Categoria"
+        personal_name: "Nome completo"
+        social_reason: "Razão social"
+        cep: "CEP"
+        state: "Estado"
+        city: "Cidade"
+        address: "Endereço/Logradouro"
+        complement_address: "Complemento"
+        observation: "Observação"
+        external: "Acesso externo ativo?"
+        email: "E-mail"
+        password: "Senha"
+

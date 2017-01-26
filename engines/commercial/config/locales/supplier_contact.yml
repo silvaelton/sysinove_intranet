@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      'commercial/supplier_contact': "Contato"
+    attributes:
+      'commercial/supplier_contact':
+        name: "Nome"
+        telephone: "Telefone"
+        telephone_secundary: "Celular"
+        email: "E-mail"

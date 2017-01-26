@@ -1,28 +1,28 @@
 .row
   .col-md-12
     %h1.title 
-      Gestão de clientes
+      Gestão de supplieres
       %small
-        %p Detalhamento de cliente
-      = link_to "Retornar para listagem", clients_path, class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
-      = link_to "Editar cliente", edit_client_path(@client), class: 'btn btn-success', data: {disable_with:  t(:disable_with)}
+        %p Detalhamento de fornecedor
+      = link_to "Retornar para listagem", suppliers_path, class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
+      = link_to "Editar fornecedor", edit_supplier_path(@supplier), class: 'btn btn-success', data: {disable_with:  t(:disable_with)}
 .divider
 .row
   .col-md-12
     .panel.panel-default
       .panel-heading
-        %b Detalhamento cliente
+        %b Detalhamento de fornecedor
       .panel-body
         .row
           .col-md-12
-            - if @client.pessoa_física?
+            - if @supplier.pessoa_física?
               %h2
-                %b= @client.personal_name
+                %b= @supplier.personal_name
             - else
               %h2
-                %b= @client.fantasy_name
+                %b= @supplier.fantasy_name
         .divider
-        - if @client.pessoa_física?
+        - if @supplier.pessoa_física?
           .row
             .col-md-12
               %table.table.table-striped
@@ -32,8 +32,8 @@
                     %th Nome completo
                 %tbody
                   %tr
-                    %td= @client.cpf_cnpj
-                    %td= @client.personal_name
+                    %td= @supplier.cpf_cnpj
+                    %td= @supplier.personal_name
         - else
           .row
             .col-md-12
@@ -47,11 +47,11 @@
                     %th Insc. Municipal
                 %tbody
                   %tr
-                    %td= @client.cpf_cnpj
-                    %td= @client.company_name
-                    %td= @client.fantasy_name
-                    %td= @client.state_number
-                    %td= @client.city_number
+                    %td= @supplier.cpf_cnpj
+                    %td= @supplier.company_name
+                    %td= @supplier.fantasy_name
+                    %td= @supplier.state_number
+                    %td= @supplier.city_number
         .divider
         %h4 Dados de localização e endereço
         .row
@@ -64,9 +64,9 @@
                   %th Cidade
               %tbody
                 %tr
-                  %td= @client.cep
-                  %td= @client.state rescue nil
-                  %td= @client.city
+                  %td= @supplier.cep
+                  %td= @supplier.state rescue nil
+                  %td= @supplier.city
         .row
           .col-md-12
             %table.table.table-striped
@@ -76,8 +76,8 @@
                   %th Complemento
               %tbody
                 %tr
-                  %td= @client.address
-                  %td= @client.complement_address
+                  %td= @supplier.address
+                  %td= @supplier.complement_address
 
         .divider
         %h4 Dados de contato
@@ -91,7 +91,7 @@
                   %th Celular
                   %th E-mail
               %tbody
-                - @client.client_contacts.each do |contact|
+                - @supplier.supplier_contacts.each do |contact|
                   %tr
                     %td= contact.name
                     %td= contact.telephone
@@ -105,21 +105,10 @@
             %table.table.table-striped
               %thead
                 %tr
-                  %th Possuí acesso externo?
-                  %th Usuário/E-mail
-              %tbody
-                %tr
-                  %td= @client.external? ? "Sim" : "Não"
-                  %td= @client.email
-        .row
-          .col-md-12
-            %table.table.table-striped
-              %thead
-                %tr
                   %th Observação
               %tbody
                 %tr
-                  %td= @client.observation
+                  %td= @supplier.observation
         .divider
         %h4 Mensagens
         .row
