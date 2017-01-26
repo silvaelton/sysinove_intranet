@@ -6,4 +6,7 @@ Commercial::Engine.routes.draw do
   resources :items, path: 'estoque'  
   resources :item_categories, path: 'estoque_categoria'  
   
+  resources :newsletters  
+  resources :newsletter_sends, path: 'envio_newsletters'
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126163730) do
+ActiveRecord::Schema.define(version: 20170126163811) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "code"
@@ -45,6 +45,27 @@ ActiveRecord::Schema.define(version: 20170126163730) do
     t.datetime "updated_at",                      null: false
     t.index ["account_id"], name: "index_commercial_items_on_account_id"
     t.index ["item_category_id"], name: "index_commercial_items_on_item_category_id"
+  end
+
+  create_table "commercial_newsletter_sends", force: :cascade do |t|
+    t.integer  "account_id"
+    t.text     "emails"
+    t.integer  "situation",     default: 0
+    t.integer  "newsletter_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["account_id"], name: "index_commercial_newsletter_sends_on_account_id"
+    t.index ["newsletter_id"], name: "index_commercial_newsletter_sends_on_newsletter_id"
+  end
+
+  create_table "commercial_newsletters", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "status",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_commercial_newsletters_on_account_id"
   end
 
   create_table "commercial_supplier_categories", force: :cascade do |t|
