@@ -18,4 +18,8 @@ class Account < ApplicationRecord
   # commercial engine
   has_many :suppliers,           class_name: "::Commercial::Supplier"
   has_many :supplier_categories, class_name: "::Commercial::SupplierCategory"
+
+  has_many :items, class_name: "::Commercial::Item"
+  has_many :item_categories, class_name: "::Commercial::ItemCategory"
+
 end

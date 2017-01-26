@@ -1,9 +1,11 @@
+require_dependency 'commercial/application_controller'
+
 module Commercial
   class ItemCategoriesController < ApplicationController
+    before_action :set_categories
     before_action :set_category, only: [:show, :edit, :update, :destroy]
-    
+
     def index
-      @categories = current_account.item_categories
     end
 
     def new
@@ -34,6 +36,10 @@ module Commercial
 
     def set_category
       @category = current_account.item_categories.find(params[:id])
+    end
+
+    def set_categories
+      @categories = current_account.item_categories.order(:name)
     end
 
   end

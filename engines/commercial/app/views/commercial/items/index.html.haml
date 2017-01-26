@@ -1,0 +1,98 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de estoque
+      %small
+        %p listagem de estoque
+.divider
+.row
+  .col-md-2
+    .panel.panel-default
+      .panel-heading
+        %b Totalizadores
+      .panel-body
+        %p 
+          %b
+            %i Total em estoque (QTD):
+        %span.label.label-primary
+          %b= @items.count
+        %hr/
+        %p 
+          %b
+            %i Total em estoque (R$ Valor de compra):
+        %span.label.label-primary
+          %b= number_to_currency @items.sum(:value_buy)
+
+        %hr/
+        %p 
+          %b 
+            %i Total em estoque (R$ Valor de venda):
+        %span.label.label-primary
+          %b= number_to_currency @items.sum(:value_sell) 
+  .col-md-10
+    .panel.panel-default
+      .panel-heading
+        %b Total listado: 
+      .panel-body
+        .row
+          = simple_form_for url_for, method: :get do |f|
+            .col-md-2
+              = f.input :by_code, label: "Por Cód.", placeholder: "00001"
+            .col-md-3
+              = f.input :by_name, label: "Por Nome", placeholder: "Informe o nome do item"
+            .col-md-3
+              = f.input :by_category, as: :select, label: "Por Categoria", collection: current_account.item_categories.order(:name), include_blank: "Todas"
+            .col-md-2
+              = f.input :by_type, as: :select, label: "Por Tipo", collection: ::Commercial::Item.units.keys, include_blank: "Todos"
+            .col-md-2
+              = f.submit "Filtrar", name: nil, class: 'btn btn-primary filter', data: { disable_with: t(:disable_with)}
+
+        .row
+          .col-md-12
+            = link_to "+ Adicionar novo item", new_item_path, class: 'btn btn-success btn-sm'
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Cod.
+                  %th Nome
+                  %th Categoria
+                  %th Tipo
+                  %th Qtd.
+                  %th R$ Venda
+                  %th 
+              %tbody
+                - if @items.present?
+                  - @items.each do |item|
+                    %tr 
+                      %td= item.id
+                      %td= item.name
+                      %td= item.item_category.name
+                      %td= item.unit.to_s.mb_chars.upcase
+                      %td= item.quantity
+                      %td= number_to_currency item.value_sell
+                      %td.col-md-1
+                        .btn-group
+                          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                            Ações
+                            %span.caret
+                          %ul.dropdown-menu
+                            %li
+                              %a{:href => "#{commercial.edit_item_path(item)}"} Editar
+                            %li
+                              %a{:href => "#{commercial.item_path(item)}", :data => { method: :delete, confirm: t(:confirm)}} Remover
+                - else
+                  %tr 
+                    %td{colspan: 6}
+                      %i Nenhum registro encontrado.
+              %tfoot
+                %tr 
+                  %td{colspan: 4}
+                  %td
+                    %h4
+                      %b Total
+                  %th
+                    %h4
+                      %B= number_to_currency @items.sum(:value_sell) rescue ''

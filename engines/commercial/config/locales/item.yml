@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      'commercial/item': "Item"
+    attributes:
+      'commercial/item':
+        name: "Nome"
+        description: "Descrição"
+        item_category: "Categoria"
+        photo: "Foto do item"
+        quantity: "Quantidade"
+        value_buy: "Valor de compra"
+        value_sell: "Valor de venda"
+        max_discount: "Desconto Máx. (%)"
+        unit: "Unidade"
+        status: "Ativo?"
+        observation: "Observação"
+
