@@ -46,4 +46,6 @@ path 'engines' do
   gem 'customer'
   gem 'commercial'
   gem 'finance'
+
+  gem 'external'
 end
