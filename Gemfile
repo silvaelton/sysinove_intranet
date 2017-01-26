@@ -21,6 +21,8 @@ gem 'file_validators'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem "brcobranca", :github => "kivanio/brcobranca"
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
