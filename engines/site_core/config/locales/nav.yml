@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      'site_core/nav': "Menu"
+    attributes:
+      'site_core/nav':
+        name: "Nome"
+        order: "Ordem"
+        target: "Ação ao clicar"
+        nav_type: "Tipo"
+        publish: "Publicado?"
+        page: "Página"
+        post: "Postagem"
+        url: "URL externa (http://www.google.com)"

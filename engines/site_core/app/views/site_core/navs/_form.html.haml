@@ -1,0 +1,24 @@
+= simple_form_for @nav do |f|
+  .row
+    .col-md-4
+      = f.input :name
+    .col-md-2
+      = f.input :order, as: :string
+    .col-md-2
+      = f.input :publish, as: :select, include_blank: false
+    .col-md-2
+      = f.input :target, as: :select, collection: ::SiteCore::Nav.targets.map { |k,v| [k.humanize, k]},  include_blank: false
+    .col-md-2
+      = f.input :nav_type, as: :select, collection: ::SiteCore::Nav.nav_types.map { |k,v| [k.humanize, k]}, include_blank: false
+  .row
+    .col-md-3
+      = f.association :page, include_blank: "selecione..."
+    .col-md-3
+      = f.association :post, include_blank: "selecione..."
+    .col-md-6
+      = f.input :url
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), navs_path(@params), class: 'btn btn-default'

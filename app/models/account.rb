@@ -22,4 +22,8 @@ class Account < ApplicationRecord
   has_many :items, class_name: "::Commercial::Item"
   has_many :item_categories, class_name: "::Commercial::ItemCategory"
 
+  # site_core engine
+
+  has_many :navs, class_name: "::SiteCore::Nav"
+  
 end

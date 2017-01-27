@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126163811) do
+ActiveRecord::Schema.define(version: 20170127152757) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "code"
@@ -296,6 +296,49 @@ ActiveRecord::Schema.define(version: 20170126163811) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["account_id"], name: "index_internal_tasks_on_account_id"
+  end
+
+  create_table "site_core_navs", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.integer  "page_id"
+    t.integer  "post_id"
+    t.string   "url"
+    t.integer  "nav_type",   default: 0
+    t.integer  "target",     default: 0
+    t.integer  "order",      default: 0
+    t.boolean  "publish",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_site_core_navs_on_account_id"
+    t.index ["page_id"], name: "index_site_core_navs_on_page_id"
+    t.index ["post_id"], name: "index_site_core_navs_on_post_id"
+  end
+
+  create_table "site_core_pages", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "category_id"
+    t.string   "name"
+    t.text     "content"
+    t.boolean  "publish",     default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["account_id"], name: "index_site_core_pages_on_account_id"
+    t.index ["category_id"], name: "index_site_core_pages_on_category_id"
+  end
+
+  create_table "site_core_posts", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "category_id"
+    t.string   "name"
+    t.text     "content"
+    t.boolean  "publish",      default: false
+    t.boolean  "slider",       default: false
+    t.string   "slider_image"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["account_id"], name: "index_site_core_posts_on_account_id"
+    t.index ["category_id"], name: "index_site_core_posts_on_category_id"
   end
 
 end

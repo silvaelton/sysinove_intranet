@@ -1,0 +1,62 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de menus 
+      %small
+        %p listagem de menus do site
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado:
+          #{@navs.count}
+      .panel-body
+        .row
+          .col-md-12
+            = link_to "+ Adicionar novo menu", new_nav_path, class: 'btn btn-success btn-sm'
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Ordem
+                  %th Nome
+                  %th Tipo
+                  %th Conteúdo
+                  %th Ação
+                  %th Publicado?
+                  %th 
+              %tbody
+                - if @navs.present?
+                  - @navs.order(:order).each do |nav|
+                    %tr
+                      %td.col-md-1= nav.order
+                      %td= nav.name
+                      %td= nav.nav_type.humanize
+                      %td
+                        - if nav.abrir_página?
+                          = nav.page.name.humanize
+                        - if nav.abrir_postagem?
+                          = nav.post.name.humanize
+                        - if nav.abrir_link?
+                          = nav.url
+                      %td.col-md-2= nav.target.humanize
+                      %td.col-md-1= nav.publish ? "Sim" : "Não"
+                      %td.col-md-1
+                        .btn-group
+                          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                            Ações
+                            %span.caret
+                          %ul.dropdown-menu
+                            %li
+                              %a{:href => "#{edit_nav_path(nav)}"} Editar
+                            %li
+                              %a{:href => "#{nav_path(nav)}", :data => { method: :delete }} Remover
+                      
+                - else
+                  %tr
+                    %td{colspan: 7}
+                      %i Nenhum registro encontrado.

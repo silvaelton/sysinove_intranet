@@ -50,4 +50,5 @@ path 'engines' do
   gem 'finance'
 
   gem 'external'
+  gem 'site_core'
 end
