@@ -1,21 +1,21 @@
 require_dependency 'site_core/application_controller'
 
 module SiteCore
-  class NavsController < ApplicationController 
-    before_action :set_nav, only: [:edit, :update, :destroy]
+  class PostsController < ApplicationController 
+    before_action :set_post, only: [:edit, :update, :destroy]
 
     def index
-      @navs = current_account.navs
+      @posts = current_account.posts
     end
 
     def new
-      @nav = current_account.navs.new
+      @post = current_account.posts.new
     end
 
     def create
-      @nav = current_account.navs.new(set_params)
+      @post = current_account.posts.new(set_params)
       
-      if @nav.save
+      if @post.save
         flash[:success] = t :success
         redirect_to action: :index
       else
@@ -28,7 +28,7 @@ module SiteCore
 
     def update
 
-      if @nav.update(set_params)
+      if @post.update(set_params)
         flash[:success] = t :success
         redirect_to action: :index
       else
@@ -39,7 +39,7 @@ module SiteCore
 
     def destroy
 
-      if @nav.destroy
+      if @post.destroy
         flash[:success] =  t :success
       else 
         flash[:danger] =  t :danger
@@ -51,12 +51,11 @@ module SiteCore
     private
 
     def set_params
-      params.require(:nav).permit(:name, :order, :nav_type, :publish, 
-                                  :target, :page_id, :post_id, :url)
+      params.require(:post).permit(:name, :content, :publish, :slider, :slider_image)
     end
 
-    def set_nav
-      @nav = current_account.navs.find(params[:id])
+    def set_post
+      @post = current_account.posts.find(params[:id])
     end
 
   end

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      'site_core/post': "Postagem"
+    attributes:
+      'site_core/post':
+        name: "Nome"
+        publish: "Publicado?"
+        content: "Conteúdo"
+        slider: "Mostrar no slide?"
+        slider_image: "Imagem do slide"

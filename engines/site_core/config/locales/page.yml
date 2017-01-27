@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      'site_core/page': "Página"
+    attributes:
+      'site_core/page':
+        name: "Nome"
+        publish: "Publicado?"
+        content: "Conteúdo"

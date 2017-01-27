@@ -26,5 +26,7 @@ class Account < ApplicationRecord
 
   has_many :navs, class_name: "::SiteCore::Nav"
   has_many :categories, class_name: "::SiteCore::Category"
+  has_many :pages, class_name: "::SiteCore::Page"
+  has_many :posts, class_name: "::SiteCore::Post"
   
 end
