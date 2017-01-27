@@ -25,5 +25,6 @@ class Account < ApplicationRecord
   # site_core engine
 
   has_many :navs, class_name: "::SiteCore::Nav"
+  has_many :categories, class_name: "::SiteCore::Category"
   
 end

@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      'site_core/category': "Categoria"
+    attributes:
+      'site_core/category':
+        name: "Nome"
+        status: "Ativo?"
