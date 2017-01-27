@@ -10,7 +10,7 @@ Commercial:
  ☐ newsletter
  ✔ relatórios @done (17-01-26 16:09)
 
- Financial:
+Financial:
  ☐ gestão de contas
  ☐ gestão de pagamentos
  ☐ gestão de entrada e saída
@@ -19,7 +19,7 @@ Commercial:
  ☐ emissão de boletos
  ☐ relatórios
 
- Site:
+Site:
  ☐ gestão de postagens
  ☐ gestão de páginas
  ☐ gestão de plugins
@@ -28,3 +28,21 @@ Commercial:
  ☐ gestão de menus
  ☐ newsletter
  ☐ relatórios
+
+Administrador:
+ ☐ Helpdesk
+
+
+External:
+ ☐ Login/Logout
+ ☐ Documentos 
+ ☐ Solicitações 
+ ☐ Mensagens 
+ ☐ Orders 
+ ☐ Boletos 
+
+
+Geral:
+ ☐ Contas
+ ☐ Usuários internos
+ ☐ Login - Logout
