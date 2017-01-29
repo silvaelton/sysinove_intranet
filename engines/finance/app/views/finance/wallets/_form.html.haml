@@ -1,0 +1,14 @@
+= simple_form_for @wallet, remote: true do |f|
+  .row
+    .col-md-12
+      = f.input :name, placeholder: "Informe um nome"
+  .row
+    .col-md-12
+      = f.input :description
+  .row
+    .col-md-4
+      = f.input :status, as: :select, include_blank: false
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success btn-sm'

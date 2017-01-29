@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      'finance/wallet': "Centro de custo"
+    attributes:
+      'finance/wallet':
+        name: "Nome"
+        description: "Descrição"
+        status: "Ativo?"
