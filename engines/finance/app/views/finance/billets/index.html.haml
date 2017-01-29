@@ -1,0 +1,46 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de boletos
+      %small
+        %p listagem de boletos
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado:
+          #{@billets.count}
+      .panel-body
+        .row
+          .col-md-12
+            = link_to "+ Emitir boleto", new_billet_path, class: 'btn btn-success btn-sm'
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Nº
+                  %th Nome
+                  %th Valor
+                  %th Vencimento
+                  %th Pago?
+                  %th Data de pagamento
+                  %th
+              %tbody
+                - if @billets.present?
+                  - @billets.order('created_at DESC').each do |billet|
+                    %tr
+                      %td.col-md-1= billet.id
+                      %td= billet.name
+                      %td.col-md-1= number_to_currency billet.value
+                      %td.col-md-1= billet.due.strftime("%d/%m/%Y")
+                      %td.col-md-1= billet.paid ? "Sim" : "Não"
+                      %td.col-md-2= billet.paid_date.strftime("%d/%m/%Y")  rescue nil
+                      %td.col-md-1= link_to "Imprimir", billet_path(billet), class: 'btn btn-primary btn-xs', target: "_blank"
+                - else
+                  %tr
+                    %td{colspan: 6}
+                      %i Nenhum boleto emitido.

@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      'finance/billet': "Boleto"
+    attributes:
+      'finance/billet':
+        name: "Nome"
+        description: "Descrição"
+        cpf: "CPF"
+        cnpj: "CNPJ"
+        due: "Vencimento"
+        paid: "Pago?"
+        paid_date: "Data do pagamento"
+        hash_return: "Retorno eletrônico"

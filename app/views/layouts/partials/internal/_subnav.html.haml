@@ -59,15 +59,15 @@
           %span.caret
         %ul.dropdown-menu
           %li
-            %a{:href => "#{customer.root_path}"} Visão Geral
+            %a{:href => "#{finance.orders_path}"} Visão Geral
           %li
-            %a{:href => "#{customer.root_path}"} Contas & Pagamentos
+            %a{:href => "#{finance.orders_path}"} Contas & Pagamentos
           %li
-            %a{:href => "#{customer.root_path}"} Vencíveis
+            %a{:href => "#{finance.orders_path}"} Vencíveis
           %li
-            %a{:href => "#{customer.root_path}"} Pagamentos
+            %a{:href => "#{finance.orders_path}"} Pagamentos
           %li
-            %a{:href => "#{customer.root_path}"} Emissão de boletos
+            %a{:href => "#{finance.billets_path}"} Emissão de boletos
           %li.divider{:role => "separator"}
           %li
             %a{:href => "#{finance.billet_banks_path}"} Carteiras (Boletos)

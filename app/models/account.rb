@@ -39,5 +39,9 @@ class Account < ApplicationRecord
 
   has_many :order_categories, class_name: "::Finance::OrderCategory"  
   has_many :wallets,          class_name: "::Finance::Wallet"  
-  has_many :billet_banks,     class_name: "::Finance::BilletBank"  
+  has_many :billet_banks,     class_name: "::Finance::BilletBank" 
+
+  has_many :billets,          class_name: "::Finance::Billet" 
+  has_many :orders,           class_name: "::Finance::Order" 
+
 end
