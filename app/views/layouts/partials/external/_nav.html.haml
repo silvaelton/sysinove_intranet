@@ -1,0 +1,17 @@
+%nav.navbar.navbar-default.white{style: 'margin-bottom: 0px; border-bottom: none !important' }
+  .container
+    .navbar-header
+      %a.navbar-brand{:href => "#"}
+        %img{:alt => "Sysinove", :src => "/icons/400dpiLogo.png", width: 100}/
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Meu perfil
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Meu perfil
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#{external.logout_sessions_path}", data: { method: 'delete'}} Sair

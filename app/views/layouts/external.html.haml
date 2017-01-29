@@ -2,16 +2,16 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Intranet
+    %title Extranet
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
-    = render 'layouts/partials/internal/nav'
-    = render 'layouts/partials/internal/subnav'
+    = render 'layouts/partials/external/nav'
+    = render 'layouts/partials/external/subnav'
     .container
       .divider
-      = render 'layouts/partials/internal/breadcrumb'
+      = render 'layouts/partials/external/breadcrumb'
       .divider
       = yield
       .footer
