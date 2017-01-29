@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   mount External::Engine    => '/externo',           as: :external
 
+  
+  mount General::Engine     => '/geral',             as: :general
+  mount GeneralSite::Engine => '/site_principal',    as: :general_site
 end

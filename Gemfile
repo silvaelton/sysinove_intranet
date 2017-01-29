@@ -51,4 +51,7 @@ path 'engines' do
 
   gem 'external'
   gem 'site_core'
+
+  gem 'general'
+  gem 'general_site'
 end
