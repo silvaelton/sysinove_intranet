@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      'finance/order_category': "Categoria"
+    attributes:
+      'finance/order_category':
+        name: "Nome"
+        status: "Ativo?"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129175033) do
+ActiveRecord::Schema.define(version: 20170129195310) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "code"
@@ -235,6 +235,79 @@ ActiveRecord::Schema.define(version: 20170129175033) do
     t.datetime "updated_at",                         null: false
     t.index ["account_id"], name: "index_customer_clients_on_account_id"
     t.index ["client_category_id"], name: "index_customer_clients_on_client_category_id"
+  end
+
+  create_table "finance_billet_banks", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "bank",       default: 0
+    t.string   "name"
+    t.string   "wallet"
+    t.string   "convenant"
+    t.string   "agency"
+    t.string   "account"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["account_id"], name: "index_finance_billet_banks_on_account_id"
+  end
+
+  create_table "finance_billets", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "bank_billet_id"
+    t.integer  "wallet_id"
+    t.string   "cpf"
+    t.string   "cnpj"
+    t.string   "name"
+    t.text     "description"
+    t.date     "due"
+    t.float    "value",          default: 0.0
+    t.boolean  "paid"
+    t.date     "paid_date"
+    t.string   "our_number"
+    t.string   "barcode"
+    t.text     "hash_return"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["account_id"], name: "index_finance_billets_on_account_id"
+    t.index ["bank_billet_id"], name: "index_finance_billets_on_bank_billet_id"
+    t.index ["wallet_id"], name: "index_finance_billets_on_wallet_id"
+  end
+
+  create_table "finance_order_categories", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.boolean  "status",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["account_id"], name: "index_finance_order_categories_on_account_id"
+  end
+
+  create_table "finance_orders", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "wallet_id"
+    t.integer  "order_type",       default: 0
+    t.integer  "order_categoy_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "note"
+    t.string   "note_number"
+    t.text     "observation"
+    t.float    "value",            default: 0.0
+    t.integer  "situation",        default: 0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["account_id"], name: "index_finance_orders_on_account_id"
+    t.index ["order_categoy_id"], name: "index_finance_orders_on_order_categoy_id"
+    t.index ["wallet_id"], name: "index_finance_orders_on_wallet_id"
+  end
+
+  create_table "finance_wallets", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "status",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["account_id"], name: "index_finance_wallets_on_account_id"
   end
 
   create_table "internal_contacts", force: :cascade do |t|

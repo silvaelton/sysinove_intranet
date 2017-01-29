@@ -25,11 +25,19 @@ class Account < ApplicationRecord
   has_many :item_categories, class_name: "::Commercial::ItemCategory"
 
   has_many :newsletters, class_name: "::Commercial::Newsletter"
+  
+
   # site_core engine
 
   has_many :navs, class_name: "::SiteCore::Nav"
   has_many :categories, class_name: "::SiteCore::Category"
   has_many :pages, class_name: "::SiteCore::Page"
   has_many :posts, class_name: "::SiteCore::Post"
-  
+
+
+  #finance engine
+
+  has_many :order_categories, class_name: "::Finance::OrderCategory"  
+  has_many :wallets,          class_name: "::Finance::Wallet"  
+  has_many :billet_banks,     class_name: "::Finance::BilletBank"  
 end

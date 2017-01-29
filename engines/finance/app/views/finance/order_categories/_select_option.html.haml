@@ -1,0 +1,5 @@
+- if !@categories.present?
+  %option Nenhuma categoria cadastrada
+- else
+  - @categories.each do |category|
+    %option{value: "#{category.id}"}= category.name
