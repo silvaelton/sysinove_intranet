@@ -1,0 +1,4 @@
+= simple_form_for @session, url: internal.sessions_path, method: :post do |f|
+  = f.input :username
+  = f.input :password
+  = f.submit "Realizar acesso", class: 'btn btn-success'

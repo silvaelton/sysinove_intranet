@@ -16,4 +16,10 @@ Internal::Engine.routes.draw do
   resources :general_messages, path: 'chat', only: [:new, :create]
   resources :staff_messages
 
+  resources :sessions, path: 'acesso', only: [:new, :create, :destroy] do
+    collection do 
+      delete 'logout', to: 'sessions#destroy'
+    end
+  end
+
 end

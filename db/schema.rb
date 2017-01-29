@@ -14,9 +14,28 @@ ActiveRecord::Schema.define(version: 20170127160702) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "username"
+    t.string   "password"
+    t.string   "name"
+    t.text     "description"
+    t.string   "logo_image"
+    t.string   "subdomain"
+    t.string   "domain"
+    t.string   "site_name"
+    t.string   "site_description"
+    t.text     "site_meta_tags"
+    t.string   "site_favicon"
+    t.boolean  "site_newsletter",   default: false
+    t.boolean  "site_contact_form", default: true
+    t.integer  "site_layout",       default: 0
+    t.string   "facebook"
+    t.string   "twitter"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["code"], name: "index_accounts_on_code", unique: true
+    t.index ["domain"], name: "index_accounts_on_domain", unique: true
+    t.index ["subdomain"], name: "index_accounts_on_subdomain", unique: true
+    t.index [nil], name: "index_accounts_on_usernmae", unique: true
   end
 
   create_table "commercial_item_categories", force: :cascade do |t|
@@ -305,6 +324,16 @@ ActiveRecord::Schema.define(version: 20170127160702) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["account_id"], name: "index_site_core_categories_on_account_id"
+  end
+
+  create_table "site_core_configs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "site_core_contact_forms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "site_core_navs", force: :cascade do |t|

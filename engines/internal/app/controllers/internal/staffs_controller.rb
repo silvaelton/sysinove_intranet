@@ -36,7 +36,7 @@ module Internal
         flash[:success] = t :success
         redirect_to action: :index
       else
-        render action: :index
+        render action: :edit
       end  
 
     end

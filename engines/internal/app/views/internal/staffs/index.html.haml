@@ -51,7 +51,7 @@
                 %td= staff.job       ||= I18n.t(:no_information)
                 %td= staff.situation ? "Sim" : "Não"
                 %td= staff.user_active ? "Sim" : "Não"
-                %td
+                %td.col-md-1
                   .btn-group
                     %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
                       Ações

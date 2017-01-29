@@ -18,4 +18,4 @@
               %a{:href => "#"} Mensagens
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"} Sair
+              %a{:href => "#{internal.logout_sessions_path}", data: { method: :delete }} Sair

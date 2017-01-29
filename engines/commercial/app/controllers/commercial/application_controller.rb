@@ -6,5 +6,7 @@ module Commercial
     layout 'application'
 
     helper ::ApplicationHelper
+
+    before_action :authenticate?
   end
 end
