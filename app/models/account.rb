@@ -7,6 +7,8 @@ class Account < ApplicationRecord
   has_many :sectors,  class_name: "::Internal::Sector"
   has_many :tasks,    class_name: "::Internal::Task"
 
+  has_many :tickets,  class_name: "::Internal::Ticket"
+
   # customer engine
   has_many :clients,           class_name: "::Customer::Client"
   has_many :client_categories, class_name: "::Customer::ClientCategory"
@@ -22,6 +24,7 @@ class Account < ApplicationRecord
   has_many :items, class_name: "::Commercial::Item"
   has_many :item_categories, class_name: "::Commercial::ItemCategory"
 
+  has_many :newsletters, class_name: "::Commercial::Newsletter"
   # site_core engine
 
   has_many :navs, class_name: "::SiteCore::Nav"

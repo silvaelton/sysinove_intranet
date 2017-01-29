@@ -1,0 +1,50 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de newsletters
+      %small
+        %p listagem de newsletters
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado:
+          #{@newsletters.count}
+      .panel-body
+        .row
+          .col-md-12
+            = link_to "+ Adicionar novo newsletter", new_newsletter_path, class: 'btn btn-success btn-sm'
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Cod. 
+                  %th Título
+                  %th Criado em
+                  %th 
+              %tbody
+                - if @newsletters.present?
+                  - @newsletters.each do |newsletter|
+                    %tr
+                      %td.col-md-1= newsletter.id
+                      %td= newsletter.title
+                      %td.col-md-1= newsletter.created_at.strftime("%d/%m/%Y")
+                      %td.col-md-1
+                        .btn-group
+                          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                            Ações
+                            %span.caret
+                          %ul.dropdown-menu
+                            %li
+                              %a{:href => "#{commercial.edit_newsletter_path(newsletter)}"} Editar
+                            %li
+                              %a{:href => "#{commercial.newsletter_path(newsletter)}", :data => { method: :delete, confirm: t(:confirm)}} Remover
+                - else
+                  %tr
+                    %td{colspan: 6}
+                      %i Nenhum registro encontrado.
+    

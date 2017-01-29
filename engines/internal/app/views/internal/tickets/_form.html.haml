@@ -1,0 +1,13 @@
+= simple_form_for @ticket do |f|
+  .row
+    .col-md-12
+      = f.input :name, placeholder: "Informe o título"
+  .row
+    .col-md-12
+      = f.input :content, placeholder: "Informe sua dúvida" 
+  
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), tickets_path(@params), class: 'btn btn-default'

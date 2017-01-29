@@ -1,0 +1,10 @@
+- if @comments.present?
+  - @comments.each do |comment|
+    .panel.panel-default
+      .panel-heading
+        %h5= comment.created_at.strftime("%d/%m/%Y às %H:%M")
+      .panel-body
+        %h5= comment.content
+
+- else
+  %i Nenhum comentário ou interação.  

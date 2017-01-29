@@ -1,0 +1,7 @@
+- if @comment.errors.any?
+  $("#modal .modal-body").html("#{escape_javascript(render 'form')}")
+- else
+  $("#modal .modal-body").html("#{escape_javascript(render 'layouts/partials/modal_success')}")
+  $(".index-each").html("#{escape_javascript(render 'index')}")
+  setTimeout(function(){ $("#modal").modal('hide') }, 2000);
+  

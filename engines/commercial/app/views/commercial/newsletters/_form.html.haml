@@ -1,0 +1,15 @@
+= simple_form_for @newsletter do |f|
+  .row
+    .col-md-10
+      = f.input :title, placeholder: "Informe o título do newsletter"
+    .col-md-2
+      = f.input :status, as: :select, include_blank: false
+  .row
+    .col-md-12
+      = f.input :content
+      = f.hint "Coloque entre chaves o código {nome} para que o mesmo seja imprima o nome do cliente destino. Ex.: 'Olá, {nome}'"
+  .divider
+  .row
+    .col-md-6
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), suppliers_path(@params), data: { disable_with: t(:disable_with)}, class: 'btn btn-default'

@@ -12,6 +12,10 @@ Internal::Engine.routes.draw do
   resources :notes
   resources :events
   resources :agendas
+  
+  resources :tickets, path: 'chamados' do 
+    resources :ticket_comments, path: 'comentarios'
+  end
 
   resources :general_messages, path: 'chat', only: [:new, :create]
   resources :staff_messages

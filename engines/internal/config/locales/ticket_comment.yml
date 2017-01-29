@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      'internal/ticket_comment': "Comentário"
+    attributes:
+      'internal/ticket_comment':
+        content: "Conteúdo"
+        

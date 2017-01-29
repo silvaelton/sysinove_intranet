@@ -1,0 +1,7 @@
+module Internal
+  class TicketComment < ApplicationRecord
+    belongs_to :ticket 
+
+    validates :content, presence: true
+  end
+end

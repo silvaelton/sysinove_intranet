@@ -1,0 +1,4 @@
+= simple_form_for [@ticket, @comment], remote: true do |f|
+  = f.input :content
+  .divider
+  = f.button :submit, class: 'btn btn-success'

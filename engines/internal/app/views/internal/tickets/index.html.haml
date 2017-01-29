@@ -1,0 +1,33 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de chamados
+      %small
+        %p listagem de chamados realizados
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Listado:
+          = @tickets.count
+      .panel-body
+        = link_to "+ Realizar novo chamado", new_ticket_path, class: 'btn btn-success btn-sm'
+        .divider
+        %table.table.table-striped.table-bordered
+          %thead
+            %tr 
+              %th Protocolo
+              %th Título
+              %th Situação
+              %th Data de criação
+              %th Comentários
+          %tbody
+            - @tickets.each do |ticket|
+              %tr
+                %td.col-md-1= ticket.id
+                %td= link_to ticket.name, ticket_ticket_comments_path(ticket)
+                %td.col-md-1= ticket.situation.humanize
+                %td.col-md-2= ticket.created_at.strftime("%d/%m/%Y")
+                %td.col-md-1= ticket.ticket_comments.count
