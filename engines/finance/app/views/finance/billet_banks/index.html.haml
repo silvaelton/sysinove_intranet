@@ -1,0 +1,35 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de carteiras
+      %small
+        %p listagem de carteiras
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Total listado:
+          #{@billet_banks.count}
+      .panel-body
+        .row
+          .col-md-12
+            = link_to "+ Adicionar carteira", new_billet_bank_path, class: 'btn btn-success btn-sm', remote: true
+        .divider
+        .row
+          .col-md-12
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th.col-md-1 #
+                  %th Nome
+                  %th Banco
+                  %th.col-md-1 Carteira
+                  %th.col-md-1 Convênio
+                  %th.col-md-1 Agência
+                  %th.col-md-1 Conta
+                  %th.col-md-1
+              %tbody.index-each
+                = render 'index'
+    

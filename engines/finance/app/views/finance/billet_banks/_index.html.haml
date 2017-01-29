@@ -1,0 +1,25 @@
+- if @billet_banks.present?
+  - @billet_banks.each_with_index do |billet_bank, index|
+    %tr
+      %td.col-md-1= index + 1
+      %td= billet_bank.name
+      %td= billet_bank.bank.humanize
+      %td.col-md-1= billet_bank.wallet
+      %td.col-md-1= billet_bank.convenant
+      %td.col-md-1= billet_bank.agency
+      %td.col-md-1= billet_bank.account
+      %td.col-md-1
+        .btn-group
+          %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            Ações
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{finance.edit_billet_bank_path(billet_bank)}", data: { remote: true}} Editar
+            %li
+              %a{:href => "#{finance.billet_bank_path(billet_bank)}", :data => { method: :delete, confirm: t(:confirm) , remote: true}} Remover
+
+- else
+  %tr
+    %td{colspan: 4}
+      %i Nenhum registro encontrado.

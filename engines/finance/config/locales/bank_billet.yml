@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      'finance/billet_bank': "Carteira"
+    attributes:
+      'finance/billet_bank':
+        name: "Nome"
+        bank: "Banco"
+        wallet: "Nº Carteira"
+        convenant: "Convênio"
+        agency: "Agência"
+        account: "Conta"
