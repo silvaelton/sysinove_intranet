@@ -1,0 +1,23 @@
+pt-BR:
+  activerecord:
+    models:
+      'account': "Conta"
+    attributes:
+      'account':
+        name: "Nome"
+        description: "Descrição"
+        email: "E-mail"
+        logo_image: "Logo da conta"
+        subdomain: "Sub-domínio (somente letras)"
+        domain: "Domínio"
+        situation: "Situação"
+        site_name: "Título do site"
+        site_description: "Descrição do site"
+        site_meta_tags: "Meta tags do site"
+        site_favicon: "Favicon"
+        site_newsletter: "Formulário newsletter ativo?"
+        site_contact_form: "Formulário contato ativo?"
+        site_layout: "Layout do site"
+        username: "Usuário"
+        password: "Senha"
+

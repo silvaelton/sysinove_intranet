@@ -1,0 +1,67 @@
+= simple_form_for @account do |f|
+  .row
+    .col-md-8
+      = f.input :name, placeholder: "Informe o nome da conta"
+    .col-md-4
+      = f.input :email, placeholder: "Informe um e-mail para contato"
+  .row
+    .col-md-12
+      = f.input :description, placeholder: "Descreva o objetivo da conta"
+  .row
+    .col-md-3
+      = f.input :logo_image, as: :file
+    .col-md-3
+      = f.input :subdomain, hint: "Informe somente um sub-domínio único", placeholder: "Ex.: joao"
+    .col-md-3
+      = f.input :domain
+    .col-md-3
+      = f.input :situation, as: :select, include_blank: false, collection: ::Account.situations.map {|k,v| [k.humanize, k]}
+
+  .divider
+  %caption 
+    %h4 
+      %b Informação do acesso
+  .divider
+  .row
+    .col-md-4
+      = f.input :username, placeholder: "Informe um nome de usuário"
+    .col-md-4
+      = f.input :password, placeholder: "Informe uma senha", hint: 'Minímo 6 caracteres'
+  .divider
+  
+  %caption 
+    %h4 
+      %b Informação do site (Opcional)
+  .divider
+  .row
+    .col-md-12
+      = f.input :site_name, placeholder: "Título do site"
+  .row
+    .col-md-12
+      = f.input :site_description, placeholder: "Descrição do site"
+  .row
+    .col-md-12
+      = f.input :site_meta_tags, placeholder: "Como o site pode ser encontrado, separe cada item por (;) ponto e vírgula"
+  .row
+    .col-md-3
+      = f.input :site_favicon, as: :file
+    .col-md-3
+      = f.input :site_newsletter, as: :select, include_blank: false
+    .col-md-3
+      = f.input :site_contact_form, as: :select, include_blank: false
+    .col-md-3
+      = f.input :site_layout, as: :select, include_blank: false, collection: ::Account.layouts.map {|k,v| [k.humanize, k]}
+  .row
+    .col-md-6
+      = f.input :facebook
+    .col-md-6
+      = f.input :twitter
+
+  .divider
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success', data: { disable_with: t(:disable_with)}
+      = link_to t(:cancel), accounts_path(@params), class: 'btn btn-default' 
+
+
+

@@ -1,0 +1,48 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de contas
+      %small
+        %p listagem de contas
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h5
+          %b Listado:
+          = @accounts.count
+      .panel-body
+        = link_to "+ Adicionar nova conta", new_account_path, class: 'btn btn-success btn-sm', data: { disable_with: t(:disable_with)}
+        .divider
+        %table.table.table-striped.table-bordred
+          %thead
+            %tr
+              %th Cod.
+              %th Nome
+              %th Data de crição
+              %th Situação
+              %th
+          %tbody
+            - if @accounts.present?
+              - @accounts.each do |account|
+                %tr
+                  %td.col-md-1= account.id
+                  %td= account.name
+                  %td.col-md-2= account.created_at.strftime("%d/%m/%Y")
+                  %td.col-md-2= account.situation.humanize
+                  %td.col-md-1
+                    .btn-group
+                      %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                        Ações
+                        %span.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "#{general.edit_account_path(account)}"} Editar
+                        %li
+                          %a{:href => "#{general.account_path(account)}", :data => { method: :delete, confirm: t(:confirm)}} Remover
+
+            - else
+              %tr 
+                %td{colspan: 5}
+                  %i Nenhuma conta cadastrada.

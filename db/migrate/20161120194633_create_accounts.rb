@@ -8,6 +8,7 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       t.string  :password 
 
       t.string  :name
+      t.string  :email
       t.text    :description
       t.string  :logo_image
       t.string  :subdomain
@@ -23,12 +24,14 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       t.string  :facebook
       t.string  :twitter
 
+      t.integer :situation, default: 0
+
       t.timestamps
     end
     
     add_index :accounts, :code, unique: true
     add_index :accounts, :domain, unique: true
     add_index :accounts, :subdomain, unique: true
-    add_index :accounts, :usernmae, unique: true
+    add_index :accounts, :username, unique: true
   end
 end

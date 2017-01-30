@@ -1,0 +1,39 @@
+%nav.navbar.navbar-default.white
+  .container
+    %ul.nav.navbar-nav
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Gestão de contas
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#{general.new_account_path}"} + Adicionar
+          %li
+            %a{:href => "#{general.accounts_path}"} Listagem
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Gestão de financeira
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#{customer.root_path}"} Assinaturas
+          %li
+            %a{:href => "#{customer.new_client_path}"} Planos
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Gestão de chamados
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#{customer.root_path}"} Últimos chamados
+          %li.divider{:role => "separator"}
+          %li
+            %a{:href => "#{site_core.pages_path}"} Listagem
+
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Sysinove
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#{internal.tickets_path}"} Usuários

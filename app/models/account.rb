@@ -44,4 +44,19 @@ class Account < ApplicationRecord
   has_many :billets,          class_name: "::Finance::Billet" 
   has_many :orders,           class_name: "::Finance::Order" 
 
+
+
+  
+
+  enum situation: ['ativo', 'inativo', 'cadastro_especial', 'irregular']
+  enum layout: ['básico']
+
+  validates :name, presence: true
+  validates :email, email: true, presence: true
+  validates :subdomain, presence: true, uniqueness: true
+  validates :situation, presence: true
+  validates :username, presence: true, uniqueness: true
+  validates :password, presence: true, on: :create
+  validates :password, length: { minimum: 6 }
+
 end

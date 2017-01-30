@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de contas
+      %small
+        %p Detalhamento de conta
+    = link_to "Retornar para listagem", accounts_path(@params), class: 'btn btn-primary', data: { disable_with: t(:disable_with)}
+.divider
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %b Detalhamento conta
+      .panel-body

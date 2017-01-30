@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   
   def current_account
-    ::Account.find_by(code: 254789) rescue nil
+    ::Account.find(1) rescue nil
   end
 
   def authenticate?

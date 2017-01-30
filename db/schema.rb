@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170129195310) do
     t.string   "username"
     t.string   "password"
     t.string   "name"
+    t.string   "email"
     t.text     "description"
     t.string   "logo_image"
     t.string   "subdomain"
@@ -30,12 +31,13 @@ ActiveRecord::Schema.define(version: 20170129195310) do
     t.integer  "site_layout",       default: 0
     t.string   "facebook"
     t.string   "twitter"
+    t.integer  "situation",         default: 0
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.index ["code"], name: "index_accounts_on_code", unique: true
     t.index ["domain"], name: "index_accounts_on_domain", unique: true
     t.index ["subdomain"], name: "index_accounts_on_subdomain", unique: true
-    t.index [nil], name: "index_accounts_on_usernmae", unique: true
+    t.index ["username"], name: "index_accounts_on_username", unique: true
   end
 
   create_table "commercial_item_categories", force: :cascade do |t|
