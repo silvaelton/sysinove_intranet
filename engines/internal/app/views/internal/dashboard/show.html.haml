@@ -33,7 +33,7 @@
         %h4
           %b  Total de funcionários
       .panel-body
-        %h1.super= current_account.staffs.count
+        %h1.super= current_account.staffs.count rescue nil
 .row
   .col-md-6
     .panel.panel-success
