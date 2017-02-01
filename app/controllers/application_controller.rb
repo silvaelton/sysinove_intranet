@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     if session[:internal_id].present? || session[:internal_master].present?
       true
     else
-      redirect_to internal.new_session_path if controller_name != "sessions"
+      true
+      #redirect_to internal.new_session_path if controller_name != "sessions"
     end
   end
 
