@@ -29,9 +29,9 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     
-    #add_index :accounts, :code, unique: true
-    #add_index :accounts, :domain, unique: true
-    #add_index :accounts, :subdomain, unique: true
-    #add_index :accounts, :username, unique: true
+    add_index :accounts, :code, unique: true
+    add_index :accounts, :domain, unique: true
+    add_index :accounts, :subdomain, unique: true
+    add_index :accounts, :username, unique: true
   end
 end
