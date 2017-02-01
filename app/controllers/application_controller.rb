@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   
   def current_account
-    ::Account.find(1) rescue nil
+    ::Account.all.last rescue nil
   end
 
   def authenticate?
