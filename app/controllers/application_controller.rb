@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    current_account.staffs.find(session[:internal_id]) rescue nil
+    nil
   end
 
   def current_user_master?
