@@ -1,25 +1,36 @@
 .panel.panel-default
   .panel-body
     %ul.nav.nav-pills.nav-stacked.nav-pills-stacked-example
+      %li{class: controller_name == "staffs" ? 'active' : nil} 
+        %a{href: "#{internal.staff_path(@staff)}"} 
+          Cadastro funcionário
       %li 
-        %a{href: "#"} Cadastro funcionáriosrio 
-      %li 
-        %a{href: "#"} Dados complementares 
-      %li 
-        %a{href: "#"} Identificacao 
-      %li 
-        %a{href: "#"} Tamanho de grade 
-      %li 
-        %a{href: "#"} Treinamentos 
-      %li 
-        %a{href: "#"} Absenteísmo 
-      %li 
-        %a{href: "#"} Turnos 
-      %li 
-        %a{href: "#"} Atividades na empresa 
-      %li 
-        %a{href: "#"} Restrições 
-      %li 
-        %a{href: "#"} Materiais 
-      %li 
-        %a{href: "#"} Empregado benefício 
+        %a{href: "#{internal.staff_complements_path(@staff)}"} 
+          Dados complementares 
+      %li{class: controller_name == "staff_complements" ? 'active' : nil} 
+        %a{href: "#{internal.staff_identifications_path(@staff)}"} 
+          Identificacao 
+      %li{class: controller_name == "staff_identifications" ? 'active' : nil}
+        %a{href: "#{internal.staff_shifts_path(@staff)}"} 
+          Tamanho de grade 
+      %li{class: controller_name == "staff_trainings" ? 'active' : nil} 
+        %a{href: "#{internal.staff_trainings_path(@staff)}"} 
+          Treinamentos 
+      %li{class: controller_name == "staff_absenteeisms" ? 'active' : nil} 
+        %a{href: "#{internal.staff_absenteeisms_path(@staff)}"} 
+          Absenteísmo 
+      %li{class: controller_name == "staff_shifts" ? 'active' : nil} 
+        %a{href: "#{internal.staff_shifts_path(@staff)}"} 
+          Turnos 
+      %li{class: controller_name == "staff_activities" ? 'active' : nil} 
+        %a{href: "#{internal.staff_activities_path(@staff)}"} 
+          Atividades na empresa 
+      %li{class: controller_name == "staff_restrictions" ? 'active' : nil} 
+        %a{href: "#{internal.staff_restrictions_path(@staff)}"} 
+          Restrições 
+      %li{class: controller_name == "staff_materials" ? 'active' : nil} 
+        %a{href: "#{internal.staff_materials_path(@staff)}"} 
+          Materiais 
+      %li{class: controller_name == "staff_benefits" ? 'active' : nil} 
+        %a{href: "#{internal.staff_benefits_path(@staff)}"}
+          Empregado benefício 

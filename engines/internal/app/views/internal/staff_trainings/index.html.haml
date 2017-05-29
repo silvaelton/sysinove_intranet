@@ -1,0 +1,16 @@
+.row
+  .col-md-12
+    %h1.title 
+      Gestão de funcionários
+      %small
+        %p Detalhamento de funcionário
+      = link_to "Voltar para listagem", staffs_path, class: 'btn btn-primary'
+.divider
+.row
+  .col-md-3
+    = render 'internal/staffs/sidebar'
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        %b Treinamentos
+      .panel-body

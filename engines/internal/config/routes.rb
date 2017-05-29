@@ -10,6 +10,7 @@ Internal::Engine.routes.draw do
     resources :complements,     controller: :staff_complements
     resources :identifications, controller: :staff_identifications
     resources :trainings,       controller: :staff_trainings
+    resources :grids,           controller: :staff_grids
     resources :absenteeisms,    controller: :staff_absenteeisms
     resources :shifts,          controller: :staff_shifts
     resources :activities,      controller: :staff_activities
