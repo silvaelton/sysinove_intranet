@@ -8,16 +8,23 @@ class CreateInternalStaffs < ActiveRecord::Migration[5.0]
       t.string :cpf
       t.string :rg 
       t.string :rg_org 
-      t.string :city
-      t.string :cep
-      t.integer :state_id
+      t.date   :born 
+      t.string :ctps
+      t.string :ctps_serie
+      t.date   :cpts_date
+      t.string :cpts_state
+
+      t.string :nit
+
+      t.boolean :special_condition, default: false
+      t.string  :blood_type
       
-      t.string :address
-      t.string :complement
-      t.string :telephone
-      t.string :telephone_optional
-      t.string :celphone
-      t.string :email
+      t.string  :bf_pdh
+      t.string  :date_admission
+      t.string  :date_demission
+      t.string  :return_departure
+      t.string  :bond
+
       t.text   :observation
       
       t.string :code
@@ -39,3 +46,4 @@ class CreateInternalStaffs < ActiveRecord::Migration[5.0]
     end
   end
 end
+
