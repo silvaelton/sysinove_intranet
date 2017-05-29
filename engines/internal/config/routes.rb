@@ -5,7 +5,20 @@ Internal::Engine.routes.draw do
   get 'dashboard', path: 'visao-geral', to: 'dashboard#show'
 
   resources :tasks,   path: 'tarefas'
-  resources :staffs,  path: 'funcionarios'
+ 
+  resources :staffs,  path: 'funcionarios' do 
+    resources :complements,     controller: :staff_complements
+    resources :identifications, controller: :staff_identifications
+    resources :trainings,       controller: :staff_trainings
+    resources :absenteeisms,    controller: :staff_absenteeisms
+    resources :shifts,          controller: :staff_shifts
+    resources :activities,      controller: :staff_activities
+    resources :restrictions,    controller: :staff_restrictions
+    resources :materials,       controller: :staff_materials
+    resources :benefits,        controller: :staff_benefits
+  end
+ 
+
   resources :contacts
   resources :sectors
   resources :patrimonies
